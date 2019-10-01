@@ -1,0 +1,406 @@
+/*************************\
+ *** Unit Levels *********
+\*************************/
+/* 1~19 */
+.ulv[data-v="1"], .ulv[data-v="2"], .ulv[data-v="3"], .ulv[data-v="4"], .ulv[data-v="5"], 
+.ulv[data-v="6"], .ulv[data-v="7"], .ulv[data-v="8"], .ulv[data-v="9"], .ulv[data-v="10"],
+.ulv[data-v="11"], .ulv[data-v="12"], .ulv[data-v="13"], .ulv[data-v="14"], .ulv[data-v="15"], 
+.ulv[data-v="16"], .ulv[data-v="17"], .ulv[data-v="18"], .ulv[data-v="19"] {
+	color: #212529;
+	background-color: #f8f9fa;
+}
+/* 20~49 */
+.ulv[data-v="20"], .ulv[data-v="21"], .ulv[data-v="22"], .ulv[data-v="23"], .ulv[data-v="24"],
+.ulv[data-v="25"], .ulv[data-v="26"], .ulv[data-v="27"], .ulv[data-v="28"], .ulv[data-v="29"],
+.ulv[data-v="30"], .ulv[data-v="31"], .ulv[data-v="32"], .ulv[data-v="33"], .ulv[data-v="34"],
+.ulv[data-v="35"], .ulv[data-v="36"], .ulv[data-v="37"], .ulv[data-v="38"], .ulv[data-v="39"],
+.ulv[data-v="40"], .ulv[data-v="41"], .ulv[data-v="42"], .ulv[data-v="43"], .ulv[data-v="44"],
+.ulv[data-v="45"], .ulv[data-v="46"], .ulv[data-v="47"], .ulv[data-v="48"], .ulv[data-v="49"] {
+	color: #fff;
+	background-color: #28a745;
+}
+/* 50~79 */
+.ulv[data-v="50"], .ulv[data-v="51"], .ulv[data-v="52"], .ulv[data-v="53"], .ulv[data-v="54"],
+.ulv[data-v="55"], .ulv[data-v="56"], .ulv[data-v="57"], .ulv[data-v="58"], .ulv[data-v="59"],
+.ulv[data-v="60"], .ulv[data-v="61"], .ulv[data-v="62"], .ulv[data-v="63"], .ulv[data-v="64"],
+.ulv[data-v="65"], .ulv[data-v="66"], .ulv[data-v="67"], .ulv[data-v="68"], .ulv[data-v="69"],
+.ulv[data-v="70"], .ulv[data-v="71"], .ulv[data-v="72"], .ulv[data-v="73"], .ulv[data-v="74"],
+.ulv[data-v="75"], .ulv[data-v="76"], .ulv[data-v="77"], .ulv[data-v="78"], .ulv[data-v="79"] {
+	color: #212529;
+	background-color: #ffc107;
+}
+/* 80~99 */
+.ulv[data-v="80"], .ulv[data-v="81"], .ulv[data-v="82"], .ulv[data-v="83"], .ulv[data-v="84"],
+.ulv[data-v="85"], .ulv[data-v="86"], .ulv[data-v="87"], .ulv[data-v="88"], .ulv[data-v="89"],
+.ulv[data-v="90"], .ulv[data-v="91"], .ulv[data-v="92"], .ulv[data-v="93"], .ulv[data-v="94"],
+.ulv[data-v="95"], .ulv[data-v="96"], .ulv[data-v="97"], .ulv[data-v="98"], .ulv[data-v="99"] {
+	color: #fff;
+	background-color: #dc3545;
+}
+/* 100~199 */
+.ulv[data-v="100"], .ulv[data-v="101"], .ulv[data-v="102"], .ulv[data-v="103"], .ulv[data-v="104"],
+.ulv[data-v="105"], .ulv[data-v="106"], .ulv[data-v="107"], .ulv[data-v="108"], .ulv[data-v="109"],
+.ulv[data-v="110"], .ulv[data-v="111"], .ulv[data-v="112"], .ulv[data-v="113"], .ulv[data-v="114"],
+.ulv[data-v="115"], .ulv[data-v="116"], .ulv[data-v="117"], .ulv[data-v="118"], .ulv[data-v="119"],
+.ulv[data-v="120"], .ulv[data-v="121"], .ulv[data-v="122"], .ulv[data-v="123"], .ulv[data-v="124"],
+.ulv[data-v="125"], .ulv[data-v="126"], .ulv[data-v="127"], .ulv[data-v="128"], .ulv[data-v="129"],
+.ulv[data-v="130"], .ulv[data-v="131"], .ulv[data-v="132"], .ulv[data-v="133"], .ulv[data-v="134"],
+.ulv[data-v="135"], .ulv[data-v="136"], .ulv[data-v="137"], .ulv[data-v="138"], .ulv[data-v="139"],
+.ulv[data-v="140"], .ulv[data-v="141"], .ulv[data-v="142"], .ulv[data-v="143"], .ulv[data-v="144"],
+.ulv[data-v="145"], .ulv[data-v="146"], .ulv[data-v="147"], .ulv[data-v="148"], .ulv[data-v="149"] {
+	color: #fff;
+	background-color: #1C1E22;
+}
+.ulv[data-v="150"], .ulv[data-v="151"], .ulv[data-v="152"], .ulv[data-v="153"], .ulv[data-v="154"],
+.ulv[data-v="155"], .ulv[data-v="156"], .ulv[data-v="157"], .ulv[data-v="158"], .ulv[data-v="159"],
+.ulv[data-v="160"], .ulv[data-v="161"], .ulv[data-v="162"], .ulv[data-v="163"], .ulv[data-v="164"],
+.ulv[data-v="165"], .ulv[data-v="166"], .ulv[data-v="167"], .ulv[data-v="168"], .ulv[data-v="169"],
+.ulv[data-v="170"], .ulv[data-v="171"], .ulv[data-v="172"], .ulv[data-v="173"], .ulv[data-v="174"],
+.ulv[data-v="175"], .ulv[data-v="176"], .ulv[data-v="177"], .ulv[data-v="178"], .ulv[data-v="179"],
+.ulv[data-v="180"], .ulv[data-v="181"], .ulv[data-v="182"], .ulv[data-v="183"], .ulv[data-v="184"],
+.ulv[data-v="185"], .ulv[data-v="186"], .ulv[data-v="187"], .ulv[data-v="188"], .ulv[data-v="189"],
+.ulv[data-v="190"], .ulv[data-v="191"], .ulv[data-v="192"], .ulv[data-v="193"], .ulv[data-v="194"],
+.ulv[data-v="195"], .ulv[data-v="196"], .ulv[data-v="197"], .ulv[data-v="198"], .ulv[data-v="199"] {
+	color: #fff;
+	background-color: #262B34;
+}
+/* 200~299 */
+.ulv[data-v="200"], .ulv[data-v="201"], .ulv[data-v="202"], .ulv[data-v="203"], .ulv[data-v="204"],
+.ulv[data-v="205"], .ulv[data-v="206"], .ulv[data-v="207"], .ulv[data-v="208"], .ulv[data-v="209"],
+.ulv[data-v="210"], .ulv[data-v="211"], .ulv[data-v="212"], .ulv[data-v="213"], .ulv[data-v="214"],
+.ulv[data-v="215"], .ulv[data-v="216"], .ulv[data-v="217"], .ulv[data-v="218"], .ulv[data-v="219"],
+.ulv[data-v="220"], .ulv[data-v="221"], .ulv[data-v="222"], .ulv[data-v="223"], .ulv[data-v="224"],
+.ulv[data-v="225"], .ulv[data-v="226"], .ulv[data-v="227"], .ulv[data-v="228"], .ulv[data-v="229"],
+.ulv[data-v="230"], .ulv[data-v="231"], .ulv[data-v="232"], .ulv[data-v="233"], .ulv[data-v="234"],
+.ulv[data-v="235"], .ulv[data-v="236"], .ulv[data-v="237"], .ulv[data-v="238"], .ulv[data-v="239"],
+.ulv[data-v="240"], .ulv[data-v="241"], .ulv[data-v="242"], .ulv[data-v="243"], .ulv[data-v="244"],
+.ulv[data-v="245"], .ulv[data-v="246"], .ulv[data-v="247"], .ulv[data-v="248"], .ulv[data-v="249"] {
+	color: #2ecc71;
+	background-color: #1C1E22;
+}
+.ulv[data-v="250"], .ulv[data-v="251"], .ulv[data-v="252"], .ulv[data-v="253"], .ulv[data-v="254"],
+.ulv[data-v="255"], .ulv[data-v="256"], .ulv[data-v="257"], .ulv[data-v="258"], .ulv[data-v="259"],
+.ulv[data-v="260"], .ulv[data-v="261"], .ulv[data-v="262"], .ulv[data-v="263"], .ulv[data-v="264"],
+.ulv[data-v="265"], .ulv[data-v="266"], .ulv[data-v="267"], .ulv[data-v="268"], .ulv[data-v="269"],
+.ulv[data-v="270"], .ulv[data-v="271"], .ulv[data-v="272"], .ulv[data-v="273"], .ulv[data-v="274"],
+.ulv[data-v="275"], .ulv[data-v="276"], .ulv[data-v="277"], .ulv[data-v="278"], .ulv[data-v="279"],
+.ulv[data-v="280"], .ulv[data-v="281"], .ulv[data-v="282"], .ulv[data-v="283"], .ulv[data-v="284"],
+.ulv[data-v="285"], .ulv[data-v="286"], .ulv[data-v="287"], .ulv[data-v="288"], .ulv[data-v="289"],
+.ulv[data-v="290"], .ulv[data-v="291"], .ulv[data-v="292"], .ulv[data-v="293"], .ulv[data-v="294"],
+.ulv[data-v="295"], .ulv[data-v="296"], .ulv[data-v="297"], .ulv[data-v="298"], .ulv[data-v="299"] {
+	color: #2ecc71;
+	background-color: #262B34;
+}
+/* 300~399 */
+.ulv[data-v="300"], .ulv[data-v="301"], .ulv[data-v="302"], .ulv[data-v="303"], .ulv[data-v="304"],
+.ulv[data-v="305"], .ulv[data-v="306"], .ulv[data-v="307"], .ulv[data-v="308"], .ulv[data-v="309"],
+.ulv[data-v="310"], .ulv[data-v="311"], .ulv[data-v="312"], .ulv[data-v="313"], .ulv[data-v="314"],
+.ulv[data-v="315"], .ulv[data-v="316"], .ulv[data-v="317"], .ulv[data-v="318"], .ulv[data-v="319"],
+.ulv[data-v="320"], .ulv[data-v="321"], .ulv[data-v="322"], .ulv[data-v="323"], .ulv[data-v="324"],
+.ulv[data-v="325"], .ulv[data-v="326"], .ulv[data-v="327"], .ulv[data-v="328"], .ulv[data-v="329"],
+.ulv[data-v="330"], .ulv[data-v="331"], .ulv[data-v="332"], .ulv[data-v="333"], .ulv[data-v="334"],
+.ulv[data-v="335"], .ulv[data-v="336"], .ulv[data-v="337"], .ulv[data-v="338"], .ulv[data-v="339"],
+.ulv[data-v="340"], .ulv[data-v="341"], .ulv[data-v="342"], .ulv[data-v="343"], .ulv[data-v="344"],
+.ulv[data-v="345"], .ulv[data-v="346"], .ulv[data-v="347"], .ulv[data-v="348"], .ulv[data-v="349"] {
+	color: #3498DB;
+	background-color: #1C1E22;
+}
+.ulv[data-v="350"], .ulv[data-v="351"], .ulv[data-v="352"], .ulv[data-v="353"], .ulv[data-v="354"],
+.ulv[data-v="355"], .ulv[data-v="356"], .ulv[data-v="357"], .ulv[data-v="358"], .ulv[data-v="359"],
+.ulv[data-v="360"], .ulv[data-v="361"], .ulv[data-v="362"], .ulv[data-v="363"], .ulv[data-v="364"],
+.ulv[data-v="365"], .ulv[data-v="366"], .ulv[data-v="367"], .ulv[data-v="368"], .ulv[data-v="369"],
+.ulv[data-v="370"], .ulv[data-v="371"], .ulv[data-v="372"], .ulv[data-v="373"], .ulv[data-v="374"],
+.ulv[data-v="375"], .ulv[data-v="376"], .ulv[data-v="377"], .ulv[data-v="378"], .ulv[data-v="379"],
+.ulv[data-v="380"], .ulv[data-v="381"], .ulv[data-v="382"], .ulv[data-v="383"], .ulv[data-v="384"],
+.ulv[data-v="385"], .ulv[data-v="386"], .ulv[data-v="387"], .ulv[data-v="388"], .ulv[data-v="389"],
+.ulv[data-v="390"], .ulv[data-v="391"], .ulv[data-v="392"], .ulv[data-v="393"], .ulv[data-v="394"],
+.ulv[data-v="395"], .ulv[data-v="396"], .ulv[data-v="397"], .ulv[data-v="398"], .ulv[data-v="399"] {
+	color: #3498DB;
+	background-color: #262B34;
+}
+/* 400~499 */
+.ulv[data-v="400"], .ulv[data-v="401"], .ulv[data-v="402"], .ulv[data-v="403"], .ulv[data-v="404"],
+.ulv[data-v="405"], .ulv[data-v="406"], .ulv[data-v="407"], .ulv[data-v="408"], .ulv[data-v="409"],
+.ulv[data-v="410"], .ulv[data-v="411"], .ulv[data-v="412"], .ulv[data-v="413"], .ulv[data-v="414"],
+.ulv[data-v="415"], .ulv[data-v="416"], .ulv[data-v="417"], .ulv[data-v="418"], .ulv[data-v="419"],
+.ulv[data-v="420"], .ulv[data-v="421"], .ulv[data-v="422"], .ulv[data-v="423"], .ulv[data-v="424"],
+.ulv[data-v="425"], .ulv[data-v="426"], .ulv[data-v="427"], .ulv[data-v="428"], .ulv[data-v="429"],
+.ulv[data-v="430"], .ulv[data-v="431"], .ulv[data-v="432"], .ulv[data-v="433"], .ulv[data-v="434"],
+.ulv[data-v="435"], .ulv[data-v="436"], .ulv[data-v="437"], .ulv[data-v="438"], .ulv[data-v="439"],
+.ulv[data-v="440"], .ulv[data-v="441"], .ulv[data-v="442"], .ulv[data-v="443"], .ulv[data-v="444"],
+.ulv[data-v="445"], .ulv[data-v="446"], .ulv[data-v="447"], .ulv[data-v="448"], .ulv[data-v="449"] {
+	color: #8e44ad;
+	background-color: #1C1E22;
+}
+.ulv[data-v="450"], .ulv[data-v="451"], .ulv[data-v="452"], .ulv[data-v="453"], .ulv[data-v="454"],
+.ulv[data-v="455"], .ulv[data-v="456"], .ulv[data-v="457"], .ulv[data-v="458"], .ulv[data-v="459"],
+.ulv[data-v="460"], .ulv[data-v="461"], .ulv[data-v="462"], .ulv[data-v="463"], .ulv[data-v="464"],
+.ulv[data-v="465"], .ulv[data-v="466"], .ulv[data-v="467"], .ulv[data-v="468"], .ulv[data-v="469"],
+.ulv[data-v="470"], .ulv[data-v="471"], .ulv[data-v="472"], .ulv[data-v="473"], .ulv[data-v="474"],
+.ulv[data-v="475"], .ulv[data-v="476"], .ulv[data-v="477"], .ulv[data-v="478"], .ulv[data-v="479"],
+.ulv[data-v="480"], .ulv[data-v="481"], .ulv[data-v="482"], .ulv[data-v="483"], .ulv[data-v="484"],
+.ulv[data-v="485"], .ulv[data-v="486"], .ulv[data-v="487"], .ulv[data-v="488"], .ulv[data-v="489"],
+.ulv[data-v="490"], .ulv[data-v="491"], .ulv[data-v="492"], .ulv[data-v="493"], .ulv[data-v="494"],
+.ulv[data-v="495"], .ulv[data-v="496"], .ulv[data-v="497"], .ulv[data-v="498"], .ulv[data-v="499"] {
+	color: #8e44ad;
+	background-color: #262B34;
+}
+/* 500~599 */
+.ulv[data-v="500"], .ulv[data-v="501"], .ulv[data-v="502"], .ulv[data-v="503"], .ulv[data-v="504"],
+.ulv[data-v="505"], .ulv[data-v="506"], .ulv[data-v="507"], .ulv[data-v="508"], .ulv[data-v="509"],
+.ulv[data-v="510"], .ulv[data-v="511"], .ulv[data-v="512"], .ulv[data-v="513"], .ulv[data-v="514"],
+.ulv[data-v="515"], .ulv[data-v="516"], .ulv[data-v="517"], .ulv[data-v="518"], .ulv[data-v="519"],
+.ulv[data-v="520"], .ulv[data-v="521"], .ulv[data-v="522"], .ulv[data-v="523"], .ulv[data-v="524"],
+.ulv[data-v="525"], .ulv[data-v="526"], .ulv[data-v="527"], .ulv[data-v="528"], .ulv[data-v="529"],
+.ulv[data-v="530"], .ulv[data-v="531"], .ulv[data-v="532"], .ulv[data-v="533"], .ulv[data-v="534"],
+.ulv[data-v="535"], .ulv[data-v="536"], .ulv[data-v="537"], .ulv[data-v="538"], .ulv[data-v="539"],
+.ulv[data-v="540"], .ulv[data-v="541"], .ulv[data-v="542"], .ulv[data-v="543"], .ulv[data-v="544"],
+.ulv[data-v="545"], .ulv[data-v="546"], .ulv[data-v="547"], .ulv[data-v="548"], .ulv[data-v="549"] {
+	color: #e74c3c;
+	background-color: #1C1E22;
+}
+.ulv[data-v="550"], .ulv[data-v="551"], .ulv[data-v="552"], .ulv[data-v="553"], .ulv[data-v="554"],
+.ulv[data-v="555"], .ulv[data-v="556"], .ulv[data-v="557"], .ulv[data-v="558"], .ulv[data-v="559"],
+.ulv[data-v="560"], .ulv[data-v="561"], .ulv[data-v="562"], .ulv[data-v="563"], .ulv[data-v="564"],
+.ulv[data-v="565"], .ulv[data-v="566"], .ulv[data-v="567"], .ulv[data-v="568"], .ulv[data-v="569"],
+.ulv[data-v="570"], .ulv[data-v="571"], .ulv[data-v="572"], .ulv[data-v="573"], .ulv[data-v="574"],
+.ulv[data-v="575"], .ulv[data-v="576"], .ulv[data-v="577"], .ulv[data-v="578"], .ulv[data-v="579"],
+.ulv[data-v="580"], .ulv[data-v="581"], .ulv[data-v="582"], .ulv[data-v="583"], .ulv[data-v="584"],
+.ulv[data-v="585"], .ulv[data-v="586"], .ulv[data-v="587"], .ulv[data-v="588"], .ulv[data-v="589"],
+.ulv[data-v="590"], .ulv[data-v="591"], .ulv[data-v="592"], .ulv[data-v="593"], .ulv[data-v="594"],
+.ulv[data-v="595"], .ulv[data-v="596"], .ulv[data-v="597"], .ulv[data-v="598"], .ulv[data-v="599"] {
+	color: #e74c3c;
+	background-color: #262B34;
+}
+/* 600~799 */
+.ulv[data-v="600"], .ulv[data-v="601"], .ulv[data-v="602"], .ulv[data-v="603"], .ulv[data-v="604"],
+.ulv[data-v="605"], .ulv[data-v="606"], .ulv[data-v="607"], .ulv[data-v="608"], .ulv[data-v="609"],
+.ulv[data-v="610"], .ulv[data-v="611"], .ulv[data-v="612"], .ulv[data-v="613"], .ulv[data-v="614"],
+.ulv[data-v="615"], .ulv[data-v="616"], .ulv[data-v="617"], .ulv[data-v="618"], .ulv[data-v="619"],
+.ulv[data-v="620"], .ulv[data-v="621"], .ulv[data-v="622"], .ulv[data-v="623"], .ulv[data-v="624"],
+.ulv[data-v="625"], .ulv[data-v="626"], .ulv[data-v="627"], .ulv[data-v="628"], .ulv[data-v="629"],
+.ulv[data-v="630"], .ulv[data-v="631"], .ulv[data-v="632"], .ulv[data-v="633"], .ulv[data-v="634"],
+.ulv[data-v="635"], .ulv[data-v="636"], .ulv[data-v="637"], .ulv[data-v="638"], .ulv[data-v="639"],
+.ulv[data-v="640"], .ulv[data-v="641"], .ulv[data-v="642"], .ulv[data-v="643"], .ulv[data-v="644"],
+.ulv[data-v="645"], .ulv[data-v="646"], .ulv[data-v="647"], .ulv[data-v="648"], .ulv[data-v="649"] {
+	color: #d35400;
+	background-color: #1C1E22;
+}
+.ulv[data-v="650"], .ulv[data-v="651"], .ulv[data-v="652"], .ulv[data-v="653"], .ulv[data-v="654"],
+.ulv[data-v="655"], .ulv[data-v="656"], .ulv[data-v="657"], .ulv[data-v="658"], .ulv[data-v="659"],
+.ulv[data-v="660"], .ulv[data-v="661"], .ulv[data-v="662"], .ulv[data-v="663"], .ulv[data-v="664"],
+.ulv[data-v="665"], .ulv[data-v="666"], .ulv[data-v="667"], .ulv[data-v="668"], .ulv[data-v="669"],
+.ulv[data-v="670"], .ulv[data-v="671"], .ulv[data-v="672"], .ulv[data-v="673"], .ulv[data-v="674"],
+.ulv[data-v="675"], .ulv[data-v="676"], .ulv[data-v="677"], .ulv[data-v="678"], .ulv[data-v="679"],
+.ulv[data-v="680"], .ulv[data-v="681"], .ulv[data-v="682"], .ulv[data-v="683"], .ulv[data-v="684"],
+.ulv[data-v="685"], .ulv[data-v="686"], .ulv[data-v="687"], .ulv[data-v="688"], .ulv[data-v="689"],
+.ulv[data-v="690"], .ulv[data-v="691"], .ulv[data-v="692"], .ulv[data-v="693"], .ulv[data-v="694"],
+.ulv[data-v="695"], .ulv[data-v="696"], .ulv[data-v="697"], .ulv[data-v="698"], .ulv[data-v="699"] {
+	color: #d35400;
+	background-color: #262B34;
+}
+.ulv[data-v="700"], .ulv[data-v="701"], .ulv[data-v="702"], .ulv[data-v="703"], .ulv[data-v="704"],
+.ulv[data-v="705"], .ulv[data-v="706"], .ulv[data-v="707"], .ulv[data-v="708"], .ulv[data-v="709"],
+.ulv[data-v="710"], .ulv[data-v="711"], .ulv[data-v="712"], .ulv[data-v="713"], .ulv[data-v="714"],
+.ulv[data-v="715"], .ulv[data-v="716"], .ulv[data-v="717"], .ulv[data-v="718"], .ulv[data-v="719"],
+.ulv[data-v="720"], .ulv[data-v="721"], .ulv[data-v="722"], .ulv[data-v="723"], .ulv[data-v="724"],
+.ulv[data-v="725"], .ulv[data-v="726"], .ulv[data-v="727"], .ulv[data-v="728"], .ulv[data-v="729"],
+.ulv[data-v="730"], .ulv[data-v="731"], .ulv[data-v="732"], .ulv[data-v="733"], .ulv[data-v="734"],
+.ulv[data-v="735"], .ulv[data-v="736"], .ulv[data-v="737"], .ulv[data-v="738"], .ulv[data-v="739"],
+.ulv[data-v="740"], .ulv[data-v="741"], .ulv[data-v="742"], .ulv[data-v="743"], .ulv[data-v="744"],
+.ulv[data-v="745"], .ulv[data-v="746"], .ulv[data-v="747"], .ulv[data-v="748"], .ulv[data-v="749"] {
+	color: #d35400;
+	background-color: #1C1E22;
+}
+.ulv[data-v="750"], .ulv[data-v="751"], .ulv[data-v="752"], .ulv[data-v="753"], .ulv[data-v="754"],
+.ulv[data-v="755"], .ulv[data-v="756"], .ulv[data-v="757"], .ulv[data-v="758"], .ulv[data-v="759"],
+.ulv[data-v="760"], .ulv[data-v="761"], .ulv[data-v="762"], .ulv[data-v="763"], .ulv[data-v="764"],
+.ulv[data-v="765"], .ulv[data-v="766"], .ulv[data-v="767"], .ulv[data-v="768"], .ulv[data-v="769"],
+.ulv[data-v="770"], .ulv[data-v="771"], .ulv[data-v="772"], .ulv[data-v="773"], .ulv[data-v="774"],
+.ulv[data-v="775"], .ulv[data-v="776"], .ulv[data-v="777"], .ulv[data-v="778"], .ulv[data-v="779"],
+.ulv[data-v="780"], .ulv[data-v="781"], .ulv[data-v="782"], .ulv[data-v="783"], .ulv[data-v="784"],
+.ulv[data-v="785"], .ulv[data-v="786"], .ulv[data-v="787"], .ulv[data-v="788"], .ulv[data-v="789"],
+.ulv[data-v="790"], .ulv[data-v="791"], .ulv[data-v="792"], .ulv[data-v="793"], .ulv[data-v="794"],
+.ulv[data-v="795"], .ulv[data-v="796"], .ulv[data-v="797"], .ulv[data-v="798"], .ulv[data-v="799"] {
+	color: #d35400;
+	background-color: #262B34;
+}
+/* 800~999 */
+.ulv[data-v="800"], .ulv[data-v="801"], .ulv[data-v="802"], .ulv[data-v="803"], .ulv[data-v="804"],
+.ulv[data-v="805"], .ulv[data-v="806"], .ulv[data-v="807"], .ulv[data-v="808"], .ulv[data-v="809"],
+.ulv[data-v="810"], .ulv[data-v="811"], .ulv[data-v="812"], .ulv[data-v="813"], .ulv[data-v="814"],
+.ulv[data-v="815"], .ulv[data-v="816"], .ulv[data-v="817"], .ulv[data-v="818"], .ulv[data-v="819"],
+.ulv[data-v="820"], .ulv[data-v="821"], .ulv[data-v="822"], .ulv[data-v="823"], .ulv[data-v="824"],
+.ulv[data-v="825"], .ulv[data-v="826"], .ulv[data-v="827"], .ulv[data-v="828"], .ulv[data-v="829"],
+.ulv[data-v="830"], .ulv[data-v="831"], .ulv[data-v="832"], .ulv[data-v="833"], .ulv[data-v="834"],
+.ulv[data-v="835"], .ulv[data-v="836"], .ulv[data-v="837"], .ulv[data-v="838"], .ulv[data-v="839"],
+.ulv[data-v="840"], .ulv[data-v="841"], .ulv[data-v="842"], .ulv[data-v="843"], .ulv[data-v="844"],
+.ulv[data-v="845"], .ulv[data-v="846"], .ulv[data-v="847"], .ulv[data-v="848"], .ulv[data-v="849"] {
+	color: #f1c40f;
+	background-color: #1C1E22;
+}
+.ulv[data-v="850"], .ulv[data-v="851"], .ulv[data-v="852"], .ulv[data-v="853"], .ulv[data-v="854"],
+.ulv[data-v="855"], .ulv[data-v="856"], .ulv[data-v="857"], .ulv[data-v="858"], .ulv[data-v="859"],
+.ulv[data-v="860"], .ulv[data-v="861"], .ulv[data-v="862"], .ulv[data-v="863"], .ulv[data-v="864"],
+.ulv[data-v="865"], .ulv[data-v="866"], .ulv[data-v="867"], .ulv[data-v="868"], .ulv[data-v="869"],
+.ulv[data-v="870"], .ulv[data-v="871"], .ulv[data-v="872"], .ulv[data-v="873"], .ulv[data-v="874"],
+.ulv[data-v="875"], .ulv[data-v="876"], .ulv[data-v="877"], .ulv[data-v="878"], .ulv[data-v="879"],
+.ulv[data-v="880"], .ulv[data-v="881"], .ulv[data-v="882"], .ulv[data-v="883"], .ulv[data-v="884"],
+.ulv[data-v="885"], .ulv[data-v="886"], .ulv[data-v="887"], .ulv[data-v="888"], .ulv[data-v="889"],
+.ulv[data-v="890"], .ulv[data-v="891"], .ulv[data-v="892"], .ulv[data-v="893"], .ulv[data-v="894"],
+.ulv[data-v="895"], .ulv[data-v="896"], .ulv[data-v="897"], .ulv[data-v="898"], .ulv[data-v="899"] {
+	color: #f1c40f;
+	background-color: #262B34;
+}
+.ulv[data-v="900"], .ulv[data-v="901"], .ulv[data-v="902"], .ulv[data-v="903"], .ulv[data-v="904"],
+.ulv[data-v="905"], .ulv[data-v="906"], .ulv[data-v="907"], .ulv[data-v="908"], .ulv[data-v="909"],
+.ulv[data-v="910"], .ulv[data-v="911"], .ulv[data-v="912"], .ulv[data-v="913"], .ulv[data-v="914"],
+.ulv[data-v="915"], .ulv[data-v="916"], .ulv[data-v="917"], .ulv[data-v="918"], .ulv[data-v="919"],
+.ulv[data-v="920"], .ulv[data-v="921"], .ulv[data-v="922"], .ulv[data-v="923"], .ulv[data-v="924"],
+.ulv[data-v="925"], .ulv[data-v="926"], .ulv[data-v="927"], .ulv[data-v="928"], .ulv[data-v="929"],
+.ulv[data-v="930"], .ulv[data-v="931"], .ulv[data-v="932"], .ulv[data-v="933"], .ulv[data-v="934"],
+.ulv[data-v="935"], .ulv[data-v="936"], .ulv[data-v="937"], .ulv[data-v="938"], .ulv[data-v="939"],
+.ulv[data-v="940"], .ulv[data-v="941"], .ulv[data-v="942"], .ulv[data-v="943"], .ulv[data-v="944"],
+.ulv[data-v="945"], .ulv[data-v="946"], .ulv[data-v="947"], .ulv[data-v="948"], .ulv[data-v="949"] {
+	color: #f1c40f;
+	background-color: #1C1E22;
+}
+.ulv[data-v="950"], .ulv[data-v="951"], .ulv[data-v="952"], .ulv[data-v="953"], .ulv[data-v="954"],
+.ulv[data-v="955"], .ulv[data-v="956"], .ulv[data-v="957"], .ulv[data-v="958"], .ulv[data-v="959"],
+.ulv[data-v="960"], .ulv[data-v="961"], .ulv[data-v="962"], .ulv[data-v="963"], .ulv[data-v="964"],
+.ulv[data-v="965"], .ulv[data-v="966"], .ulv[data-v="967"], .ulv[data-v="968"], .ulv[data-v="969"],
+.ulv[data-v="970"], .ulv[data-v="971"], .ulv[data-v="972"], .ulv[data-v="973"], .ulv[data-v="974"],
+.ulv[data-v="975"], .ulv[data-v="976"], .ulv[data-v="977"], .ulv[data-v="978"], .ulv[data-v="979"],
+.ulv[data-v="980"], .ulv[data-v="981"], .ulv[data-v="982"], .ulv[data-v="983"], .ulv[data-v="984"],
+.ulv[data-v="985"], .ulv[data-v="986"], .ulv[data-v="987"], .ulv[data-v="988"], .ulv[data-v="989"],
+.ulv[data-v="990"], .ulv[data-v="991"], .ulv[data-v="992"], .ulv[data-v="993"], .ulv[data-v="994"],
+.ulv[data-v="995"], .ulv[data-v="996"], .ulv[data-v="997"], .ulv[data-v="998"], .ulv[data-v="999"] {
+	color: #f1c40f;
+	background-color: #262B34;
+}
+
+/*************************\
+ *** Living Status *******
+\*************************/
+/*****************\
+ ****** RED ******
+ * Stamina 0-5
+ * Satiety 0-5
+ * Energy 0-2
+\*****************/
+/* Stamina */
+.ust[data-v="0"], .ust[data-v="1"], .ust[data-v="2"],
+.ust[data-v="3"], .ust[data-v="4"], .ust[data-v="5"],
+/* Satiety */
+.usa[data-v="0"], .usa[data-v="1"], .usa[data-v="2"],
+.usa[data-v="3"], .usa[data-v="4"], .usa[data-v="5"], 
+/* Energy */
+.uen[data-v="0"], .uen[data-v="1"], .uen[data-v="2"]{
+	color: red;
+}
+
+/*****************\
+ **** ORANGE *****
+ * Stamina 6-15
+ * Satiety 6-25
+ * Energy 3-10
+\*****************/
+/* Stamina */
+.ust[data-v="6"], .ust[data-v="7"], .ust[data-v="8"], .ust[data-v="9"], .ust[data-v="10"], 
+.ust[data-v="11"], .ust[data-v="12"], .ust[data-v="13"], .ust[data-v="14"], .ust[data-v="15"],
+/* Satiety */
+.usa[data-v="6"], .usa[data-v="7"], .usa[data-v="8"], .usa[data-v="9"], .usa[data-v="10"], 
+.usa[data-v="11"], .usa[data-v="12"], .usa[data-v="13"], .usa[data-v="14"], .usa[data-v="15"],
+.usa[data-v="16"], .usa[data-v="17"], .usa[data-v="18"], .usa[data-v="19"], .usa[data-v="20"], 
+.usa[data-v="21"], .usa[data-v="22"], .usa[data-v="23"], .usa[data-v="24"], .usa[data-v="25"],
+/* Energy */
+.uen[data-v="3"], .uen[data-v="4"], .uen[data-v="5"], .uen[data-v="6"],
+.uen[data-v="7"], .uen[data-v="8"], .uen[data-v="9"], .uen[data-v="10"] {
+	color: #E67E22;
+}
+
+/*****************\
+ **** YELLOW *****
+ * Stamina 16-25
+ * Satiety 26-50
+ * Energy 11-30
+\*****************/
+/* Stamina */
+.ust[data-v="16"], .ust[data-v="17"], .ust[data-v="18"], .ust[data-v="19"], .ust[data-v="20"], 
+.ust[data-v="21"], .ust[data-v="22"], .ust[data-v="23"], .ust[data-v="24"], .ust[data-v="25"],
+/* Satiety */
+.usa[data-v="26"], .usa[data-v="27"], .usa[data-v="28"], .usa[data-v="29"], .usa[data-v="30"], 
+.usa[data-v="31"], .usa[data-v="32"], .usa[data-v="33"], .usa[data-v="34"], .usa[data-v="35"],
+.usa[data-v="36"], .usa[data-v="37"], .usa[data-v="38"], .usa[data-v="39"], .usa[data-v="40"], 
+.usa[data-v="41"], .usa[data-v="42"], .usa[data-v="43"], .usa[data-v="44"], .usa[data-v="45"],
+.usa[data-v="46"], .usa[data-v="47"], .usa[data-v="48"], .usa[data-v="49"], .usa[data-v="50"],
+/* Energy */
+.uen[data-v="11"], .uen[data-v="12"], .uen[data-v="13"], .uen[data-v="14"], .uen[data-v="15"],
+.uen[data-v="16"], .uen[data-v="17"], .uen[data-v="18"], .uen[data-v="19"], .uen[data-v="20"], 
+.uen[data-v="21"], .uen[data-v="22"], .uen[data-v="23"], .uen[data-v="24"], .uen[data-v="25"],
+.uen[data-v="26"], .uen[data-v="27"], .uen[data-v="28"], .uen[data-v="29"], .uen[data-v="30"] {
+	color: #F1C40F;
+}
+
+/*****************\
+ ***** GREEN *****
+ * Stamina 26-75
+ * Satiety 51-95
+ * Energy 31-80
+\*****************/
+/* Stamina */
+.ust[data-v="26"], .ust[data-v="27"], .ust[data-v="28"], .ust[data-v="29"], .ust[data-v="30"], 
+.ust[data-v="31"], .ust[data-v="32"], .ust[data-v="33"], .ust[data-v="34"], .ust[data-v="35"],
+.ust[data-v="36"], .ust[data-v="37"], .ust[data-v="38"], .ust[data-v="39"], .ust[data-v="40"], 
+.ust[data-v="41"], .ust[data-v="42"], .ust[data-v="43"], .ust[data-v="44"], .ust[data-v="45"],
+.ust[data-v="46"], .ust[data-v="47"], .ust[data-v="48"], .ust[data-v="49"], .ust[data-v="50"], 
+.ust[data-v="51"], .ust[data-v="52"], .ust[data-v="53"], .ust[data-v="54"], .ust[data-v="55"],
+.ust[data-v="56"], .ust[data-v="57"], .ust[data-v="58"], .ust[data-v="59"], .ust[data-v="60"], 
+.ust[data-v="61"], .ust[data-v="62"], .ust[data-v="63"], .ust[data-v="64"], .ust[data-v="65"],
+.ust[data-v="66"], .ust[data-v="67"], .ust[data-v="68"], .ust[data-v="69"], .ust[data-v="70"],
+.ust[data-v="71"], .ust[data-v="72"], .ust[data-v="73"], .ust[data-v="74"], .ust[data-v="75"],
+/* Satiety */
+.usa[data-v="51"], .usa[data-v="52"], .usa[data-v="53"], .usa[data-v="54"], .usa[data-v="55"],
+.usa[data-v="56"], .usa[data-v="57"], .usa[data-v="58"], .usa[data-v="59"], .usa[data-v="60"], 
+.usa[data-v="61"], .usa[data-v="62"], .usa[data-v="63"], .usa[data-v="64"], .usa[data-v="65"],
+.usa[data-v="66"], .usa[data-v="67"], .usa[data-v="68"], .usa[data-v="69"], .usa[data-v="70"],
+.usa[data-v="71"], .usa[data-v="72"], .usa[data-v="73"], .usa[data-v="74"], .usa[data-v="75"],
+.usa[data-v="76"], .usa[data-v="77"], .usa[data-v="78"], .usa[data-v="79"], .usa[data-v="80"], 
+.usa[data-v="81"], .usa[data-v="82"], .usa[data-v="83"], .usa[data-v="84"], .usa[data-v="85"],
+.usa[data-v="86"], .usa[data-v="87"], .usa[data-v="88"], .usa[data-v="89"], .usa[data-v="90"], 
+.usa[data-v="91"], .usa[data-v="92"], .usa[data-v="93"], .usa[data-v="94"], .usa[data-v="95"],
+/* Energy */
+.uen[data-v="31"], .uen[data-v="32"], .uen[data-v="33"], .uen[data-v="34"], .uen[data-v="35"],
+.uen[data-v="36"], .uen[data-v="37"], .uen[data-v="38"], .uen[data-v="39"], .uen[data-v="40"], 
+.uen[data-v="41"], .uen[data-v="42"], .uen[data-v="43"], .uen[data-v="44"], .uen[data-v="45"],
+.uen[data-v="46"], .uen[data-v="47"], .uen[data-v="48"], .uen[data-v="49"], .uen[data-v="50"], 
+.uen[data-v="51"], .uen[data-v="52"], .uen[data-v="53"], .uen[data-v="54"], .uen[data-v="55"],
+.uen[data-v="56"], .uen[data-v="57"], .uen[data-v="58"], .uen[data-v="59"], .uen[data-v="60"], 
+.uen[data-v="61"], .uen[data-v="62"], .uen[data-v="63"], .uen[data-v="64"], .uen[data-v="65"],
+.uen[data-v="66"], .uen[data-v="67"], .uen[data-v="68"], .uen[data-v="69"], .uen[data-v="70"],
+.uen[data-v="71"], .uen[data-v="72"], .uen[data-v="73"], .uen[data-v="74"], .uen[data-v="75"],
+.uen[data-v="76"], .uen[data-v="77"], .uen[data-v="78"], .uen[data-v="79"], .uen[data-v="80"] {
+	color: #2ECC71;
+}
+
+/*****************\
+ ***** CYAN ******
+ * Stamina 76-100
+ * Satiety 96-100
+ * Energy 81-100
+\*****************/
+/* Stamina */
+.ust[data-v="76"], .ust[data-v="77"], .ust[data-v="78"], .ust[data-v="79"], .ust[data-v="80"], 
+.ust[data-v="81"], .ust[data-v="82"], .ust[data-v="83"], .ust[data-v="84"], .ust[data-v="85"],
+.ust[data-v="86"], .ust[data-v="87"], .ust[data-v="88"], .ust[data-v="89"], .ust[data-v="90"], 
+.ust[data-v="91"], .ust[data-v="92"], .ust[data-v="93"], .ust[data-v="94"], .ust[data-v="95"],
+.ust[data-v="96"], .ust[data-v="97"], .ust[data-v="98"], .ust[data-v="99"], .ust[data-v="100"],
+/* Satiety */
+.usa[data-v="96"], .usa[data-v="97"], .usa[data-v="98"], .usa[data-v="99"], .usa[data-v="100"],
+/* Energy */
+.uen[data-v="81"], .uen[data-v="82"], .uen[data-v="83"], .uen[data-v="84"], .uen[data-v="85"],
+.uen[data-v="86"], .uen[data-v="87"], .uen[data-v="88"], .uen[data-v="89"], .uen[data-v="90"], 
+.uen[data-v="91"], .uen[data-v="92"], .uen[data-v="93"], .uen[data-v="94"], .uen[data-v="95"],
+.uen[data-v="96"], .uen[data-v="97"], .uen[data-v="98"], .uen[data-v="99"], .uen[data-v="100"] {
+	color: cyan;
+}

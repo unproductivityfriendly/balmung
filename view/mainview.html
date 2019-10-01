@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<div id="main-title" class="view-title" data-view="0">
+	<h3>
+		<span id="main-title-overview" class="body-title">Overview</span>
+		<span id="main-title-information" class="body-title">&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Information&nbsp;>
+			<span id="main-title-party" class="body-subtitle">Group</span>
+			<span id="main-title-unit-character" class="body-subtitle">Character</span>
+			<span id="main-title-unit-transport" class="body-subtitle">Transport</span>
+			<span id="main-title-map" class="body-subtitle">Map</span>
+		</span>
+		<span id="main-title-information2" class="body-title">&nbsp;&nbsp;|&nbsp;&nbsp;
+			<span id="main-title-party-new" class="body-subtitle">Create Party</span>
+		</span>
+	</h3>
+</div>
+<div id="main-body" class="subview-body" data-view="0">
+	<section id="main-overview">Overview body</section>
+	<section id="main-group">
+		<div id="main-group-submenu" class="main-subview-menu" data-view="0">
+			<ul class="horizontal links">
+				<li id="main-group-submenu-overview">General</li>
+				<li id="main-group-submenu-units">Units</li>
+				<li id="main-group-submenu-inventories">Inventories</li>
+				<li id="main-group-submenu-tasks">Tasks</li>
+				<li id="main-group-submenu-map">Map</li>
+			</ul>
+		</div>
+		<div id="main-group-body" class="main-subview-body" data-view="0">
+			<section id="main-group-body-overview" class="show">
+				Overview BODY
+			</section>
+			<section id="main-group-body-units" class="show">
+				Units BODY
+			</section>
+			<section id="main-group-body-inventories" class="show">
+				Inventories BODY
+			</section>
+			<section id="main-group-body-tasks" class="show">
+				Tasks BODY
+			</section>
+			<section id="main-group-body-map" class="show">
+				Map BODY
+			</section>
+		</div>
+	</section>
+	<section id="main-raid">
+		RAID BODY
+	</section>
+	<section id="main-party-new">
+		<div id="main-party-new-selection" data-unitcount="0">
+			<div id="main-pn-leader">
+				<h3>Choose a Party Leader</h3>
+				<ul id="pt-leader-list" class="item-list">
+					<li id="pt-leader-tmp" class="unit-char" data-unitid="0" data-unitrace="0" data-unitlevel="0" data-unitgender="0">
+						<span id="unit-char-tmp-name" class="unit-name">%CHAR_NAME%</span>
+						<span class="unit-gender">
+							<svg class="si-glyph si-glyph-male" viewBox="0 0 17 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+								<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+									<path d="M16.875,5.884 L16.875,0.125 L11.113,0.125 L13.336,2.346 L9.633,6.057 C8.748,5.429 7.668,5.055 6.502,5.055 C3.498,5.055 1.055,7.507 1.055,10.522 C1.055,13.538 3.498,15.99 6.502,15.99 C9.504,15.99 11.946,13.538 11.946,10.522 C11.946,9.344 11.568,8.254 10.935,7.361 L14.637,3.649 L16.875,5.884 L16.875,5.884 Z M6.464,14.165 C4.518,14.165 2.932,12.584 2.932,10.635 C2.932,8.689 4.518,7.106 6.464,7.106 C8.41,7.106 9.996,8.689 9.996,10.635 C9.996,12.584 8.41,14.165 6.464,14.165 L6.464,14.165 Z" fill="#434343" class="si-glyph-fill"></path>
+								</g>
+							</svg>
+							<svg class="si-glyph si-glyph-female" viewBox="0 0 17 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+								<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+									<path d="M9.982,9.965 C12.225,9.495 13.916,7.485 13.916,5.082 C13.916,2.331 11.701,0.094 8.978,0.094 C6.257,0.094 4.042,2.331 4.042,5.082 C4.042,7.494 5.746,9.512 8.001,9.97 L8.001,12.043 L5.062,12.043 L5.062,13.968 L8.001,13.968 L8.001,15.969 L9.981,15.969 L9.981,13.968 L12.874,13.968 L12.874,12.043 L9.981,12.043 L9.981,9.965 L9.982,9.965 Z M5.934,4.955 C5.934,3.187 7.301,1.75 8.979,1.75 C10.659,1.75 12.024,3.188 12.024,4.955 C12.024,6.722 10.659,8.158 8.979,8.158 C7.301,8.158 5.934,6.722 5.934,4.955 L5.934,4.955 Z" fill="#434343" class="si-glyph-fill"></path>
+								</g>
+							</svg>
+						</span>
+						<span class="unit-livingstatus">
+							<span data-v="0" class="unit-level ulv badge"></span>
+							<span data-v="0" class="unit-stamina ust">
+								<svg class="si-glyph si-glyph-wieght" viewBox="0 0 17 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+									<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+										<path d="M16,6.079 L16,5 L14.045,5 L14.045,8 L4,8 L4,5.041 L2,5.041 L2,6.052 L1.039,6.052 L1.039,11.958 L2,11.958 L2,12.955 L4,12.955 L4,10 L14.045,10 L14.045,12.996 L16,12.996 L16,11.958 L17,11.958 L17,6.079 L16,6.079 Z" fill="#434343" class="si-glyph-fill"></path>
+									</g>
+								</svg>
+							</span>
+							<span data-v="0" class="unit-satiety usa">
+								<svg class="si-glyph si-glyph-hamburger" viewBox="0 0 17 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+									<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+										<g transform="translate(1.000000, 0.000000)" fill="#434343">
+											<path d="M0.021,13.061 C0.021,16.323 7.469,15.941 8.002,15.941 C8.535,15.941 15.982,16.472 15.982,13.061 L0.021,13.061 L0.021,13.061 Z" class="si-glyph-fill"></path>
+											<rect x="0" y="11" width="15.951" height="0.951" class="si-glyph-fill"></rect>
+											<path d="M0.318,9.991 C0.38,9.991 0.442,9.973 0.497,9.936 L2,8.744 L3.836,9.924 C3.941,9.996 4.08,9.995 4.188,9.922 L6.016,8.743 L7.801,9.91 C7.908,9.982 8.043,9.982 8.15,9.91 L9.983,8.742 L11.791,9.91 C11.898,9.982 12.035,9.98 12.142,9.908 L14.009,8.756 L15.478,9.938 C15.626,10.039 15.826,9.999 15.923,9.844 C16.022,9.691 15.982,9.485 15.833,9.381 L14.188,8.078 C14.082,8.005 13.943,8.004 13.834,8.077 L11.963,9.232 L10.156,8.064 C10.049,7.994 9.914,7.994 9.807,8.065 L7.972,9.232 L6.187,8.064 C6.08,7.992 5.943,7.993 5.836,8.066 L4.009,9.244 L2.173,8.065 C2.066,7.992 1.926,7.993 1.821,8.066 L0.141,9.379 C-0.007,9.48 -0.048,9.687 0.051,9.841 C0.113,9.939 0.215,9.991 0.318,9.991 L0.318,9.991 Z" class="si-glyph-fill"></path>
+											<path d="M15.797,4.958 C15.797,4.947 15.801,4.937 15.799,4.928 C15.204,0.662 10.014,0.066 7.998,0.066 C5.982,0.066 0.881,0.663 0.198,4.928 C0.198,4.938 0.199,4.948 0.199,4.958 L15.797,4.958 L15.797,4.958 Z M12.958,2.958 L14.043,2.958 L14.043,4.02 L12.958,4.02 L12.958,2.958 L12.958,2.958 Z M1.958,2.958 L3.031,2.958 L3.031,4.016 L1.958,4.016 L1.958,2.958 L1.958,2.958 Z M4.958,1.958 L6.016,1.958 L6.016,3 L4.958,3 L4.958,1.958 L4.958,1.958 Z M9.958,1.958 L11,1.958 L11,3.016 L9.958,3.016 L9.958,1.958 L9.958,1.958 Z M6.958,2.958 L8.02,2.958 L8.02,4.02 L6.958,4.02 L6.958,2.958 L6.958,2.958 Z M7.979,0.974 L9,0.974 L9,2.027 L7.979,2.027 L7.979,0.974 L7.979,0.974 Z" class="si-glyph-fill"></path>
+											<rect x="0" y="6" width="15.924" height="0.902" class="si-glyph-fill"></rect>
+										</g>
+									</g>
+								</svg>
+							</span>
+							<span data-v="0" class="unit-energy uen">
+								<svg class="si-glyph si-glyph-bolt" viewBox="0 0 17 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+									<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+										<path d="M14.289,0.023 L6.925,0 L2.984,8 L8,8 L3.666,15.916 L14.924,4.941 L10.35,4.941 L14.289,0.023 Z" fill="#434343" class="si-glyph-fill"></path>
+									</g>
+								</svg>
+							</span>
+						</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+	<section id="main-unit-character">
+		<div id="main-unit-uch-information" data-unitindex="0">
+			<table id="main-unit-uch-info1" class="float float-left">
+				<tbody>
+					<tr><td class="main-uch-col1">Name</td><td id="main-uch-name" class="main-uch-col2"></td></tr>
+					<tr><td>Race</td><td id="main-uch-race"></td></tr>
+					<tr><td>Gender</td><td id="main-uch-gender"></td></tr>
+					<tr><td>Level</td><td id="main-uch-level"></td></tr>
+					<tr><td>Total Exp</td><td id="main-uch-exptotal"></td></tr>
+					<tr><td>Rest Exp</td><td id="main-uch-expectedexp"></td></tr>
+					<tr><td>Spirit</td><td id="main-uch-exptospirit"></td></tr>
+					<tr><td colspan="2" id="main-uch-exp"  class="center">
+						<div id="main-uch-exp-progressbar" class="progressbar">
+							<div id="main-uch-exp-progress" class="progress" data-exppercent="0"></div>
+							<div id="main-uch-exptext" class="progressnumber"><span id="main-uch-exp-current"></span>&nbsp;/&nbsp;<span id="main-uch-exp-total"></span></div>
+						</div>
+					</td></tr>
+					<tr><td colspan="2">&nbsp;</td></tr>
+					<tr><td>Health</td><td id="main-uch-health" class="center"><span id="main-uch-health-current"></span>&nbsp;/&nbsp;<span id="main-uch-health-max"></span></td></tr>
+					<tr><td>Stamina</td><td id="main-uch-stamina" class="center"><span id="main-uch-stamina-current"></span>&nbsp;/&nbsp;<span id="main-uch-stamina-max"></span></td></tr>
+					<tr><td>Satiety</td><td id="main-uch-satiety" class="center"><span id="main-uch-satiety-current"></span>&nbsp;/&nbsp;<span id="main-uch-satiety-max"></span></td></tr>
+					<tr><td>Energy</td><td id="main-uch-energy" class="center"><span id="main-uch-energy-current"></span>&nbsp;/&nbsp;<span id="main-uch-energy-max"></span></td></tr>
+					<tr><td>State</td><td id="main-uch-state"></td></tr>
+					<tr><td colspan="2">&nbsp;</td></tr>
+					<tr><td>Party</td><td id="main-uch-party">Not assigned</td></tr>
+					<tr><td colspan="2">&nbsp;</td></tr>
+					<tr><td>Status</td><td id="main-uch-status"></td></tr>
+					<tr><td>ticks</td><td id="main-uch-ticks">
+						Stamina <span id="main-uch-ticks-stamina"></span><br>
+						Satiety <span id="main-uch-ticks-satiety"></span><br>
+						Energy <span id="main-uch-ticks-energy"></span><br>
+					</td></tr>
+				</tbody>
+			</table>
+			<table id="main-unit-uch-info2" class="float float-left">
+				<tbody>
+					<tr class="table-header pstat">
+						<td class="main-uch-col1 unit-char-stat-primary-name">Primary Stats</th>
+						<td class="main-uch-col2 unit-char-stat-primary-base"><span id="main-uch-stat-label-base">Base</span></td>
+						<td class="main-uch-col3 unit-char-stat-primary-talent"><span id="main-uch-stat-label-talent">Talent</span></td>
+						<td class="main-uch-col4 unit-char-stat-primary-skill"><span id="main-uch-stat-label-skill">Skill</span></td>
+						<td class="main-uch-col5 unit-char-stat-primary-equipment"><span id="main-uch-stat-label-equipment">Equip</span></td>
+						<td class="main-uch-col6 unit-char-stat-primary-status"><span id="main-uch-stat-label-status">Status</span></td>
+						<td class="main-uch-col7 unit-char-stat-primary-total-label"><span id="main-uch-stat-label-total">Total</span></td>
+					</tr>
+					<tr class="pstat primary-stat-1">
+						<td class="main-uch-col1 unit-char-stat-primary-name">Strength</td>
+						<td class="main-uch-col2 unit-char-stat-primary-base"><span id="main-uch-stat-strength-base" class="stat-v" data-s="0"></span></td>
+						<td class="main-uch-col3 unit-char-stat-primary-talent"><span id="main-uch-stat-strength-talent" class="stat-v stat-b" data-s="0"></span></td>
+						<td class="main-uch-col4 unit-char-stat-primary-skill"><span id="main-uch-stat-strength-skill" class="stat-v stat-b" data-s="0"></span></td>
+						<td class="main-uch-col5 unit-char-stat-primary-equipment"><span id="main-uch-stat-strength-equipment" class="stat-v stat-b" data-s="0"></span></td>
+						<td class="main-uch-col6 unit-char-stat-primary-status"><span id="main-uch-stat-strength-status" class="stat-v stat-b" data-s="0"></span></td>
+						<td class="main-uch-col7 unit-char-stat-primary-total"><span id="main-uch-stat-strength-total" class="stat-v" data-s="0"></span></td>
+					</tr>
+					<tr class="pstat primary-stat-1">
+						<td class="main-uch-col1 unit-char-stat-primary-name">Constitution</td>
+						<td class="main-uch-col2 unit-char-stat-primary-base"><span id="main-uch-stat-constitution-base" class="stat-v" data-s="0"></span></td>
+						<td class="main-uch-col3 unit-char-stat-primary-talent"><span id="main-uch-stat-constitution-talent" class="stat-v stat-b" data-s="0"></span></td>
+						<td class="main-uch-col4 unit-char-stat-primary-skill"><span id="main-uch-stat-constitution-skill" class="stat-v stat-b" data-s="0"></span></td>
+						<td class="main-uch-col5 unit-char-stat-primary-equipment"><span id="main-uch-stat-constitution-equipment" class="stat-v stat-b" data-s="0"></span></td>
+						<td class="main-uch-col6 unit-char-stat-primary-status"><span id="main-uch-stat-constitution-status" class="stat-v stat-b" data-s="0"></span></td>
+						<td class="main-uch-col7 unit-char-stat-primary-total"><span id="main-uch-stat-constitution-total" class="stat-v" data-s="0"></span></td>
+					</tr>
+					<tr class="pstat primary-stat-2">
+						<td class="main-uch-col1 unit-char-stat-primary-name">Agility</td>
+						<td class="main-uch-col2 unit-char-stat-primary-base"><span id="main-uch-stat-agility-base" class="stat-v" data-s="0"></span></td>
+						<td class="main-uch-col3 unit-char-stat-primary-talent"><span id="main-uch-stat-agility-talent" class="stat-v stat-b" data-s="0"></span></td>
+						<td class="main-uch-col4 unit-char-stat-primary-skill"><span id="main-uch-stat-agility-skill" class="stat-v stat-b" data-s="0"></span></td>
+						<td class="main-uch-col5 unit-char-stat-primary-equipment"><span id="main-uch-stat-agility-equipment" class="stat-v stat-b" data-s="0"></span></td>
+						<td class="main-uch-col6 unit-char-stat-primary-status"><span id="main-uch-stat-agility-status" class="stat-v stat-b" data-s="0"></span></td>
+						<td class="main-uch-col7 unit-char-stat-primary-total"><span id="main-uch-stat-agility-total" class="stat-v" data-s="0"></span></td>
+					</tr>
+					<tr class="pstat primary-stat-2">
+						<td class="main-uch-col1 unit-char-stat-primary-name">Dexterity</td>
+						<td class="main-uch-col2 unit-char-stat-primary-base"><span id="main-uch-stat-dexterity-base" class="stat-v" data-s="0"></span></td>
+						<td class="main-uch-col3 unit-char-stat-primary-talent"><span id="main-uch-stat-dexterity-talent" class="stat-v stat-b" data-s="0"></span></td>
+						<td class="main-uch-col4 unit-char-stat-primary-skill"><span id="main-uch-stat-dexterity-skill" class="stat-v stat-b" data-s="0"></span></td>
+						<td class="main-uch-col5 unit-char-stat-primary-equipment"><span id="main-uch-stat-dexterity-equipment" class="stat-v stat-b" data-s="0"></span></td>
+						<td class="main-uch-col6 unit-char-stat-primary-status"><span id="main-uch-stat-dexterity-status" class="stat-v stat-b" data-s="0"></span></td>
+						<td class="main-uch-col7 unit-char-stat-primary-total"><span id="main-uch-stat-dexterity-total" class="stat-v" data-s="0"></span></td>
+					</tr>
+					<tr class="pstat primary-stat-3">
+						<td class="main-uch-col1 unit-char-stat-primary-name">Intelligence</td>
+						<td class="main-uch-col2 unit-char-stat-primary-base"><span id="main-uch-stat-intelligence-base" class="stat-v" data-s="0"></span></td>
+						<td class="main-uch-col3 unit-char-stat-primary-talent"><span id="main-uch-stat-intelligence-talent" class="stat-v stat-b" data-s="0"></span></td>
+						<td class="main-uch-col4 unit-char-stat-primary-skill"><span id="main-uch-stat-intelligence-skill" class="stat-v stat-b" data-s="0"></span></td>
+						<td class="main-uch-col5 unit-char-stat-primary-equipment"><span id="main-uch-stat-intelligence-equipment" class="stat-v stat-b" data-s="0"></span></td>
+						<td class="main-uch-col6 unit-char-stat-primary-status"><span id="main-uch-stat-intelligence-status" class="stat-v stat-b" data-s="0"></span></td>
+						<td class="main-uch-col7 unit-char-stat-primary-total"><span id="main-uch-stat-intelligence-total" class="stat-v" data-s="0"></span></td>
+					</tr>
+					<tr class="pstat primary-stat-3">
+						<td class="main-uch-col1 unit-char-stat-primary-name">Wisdom</td>
+						<td class="main-uch-col2 unit-char-stat-primary-base"><span id="main-uch-stat-wisdom-base" class="stat-v" data-s="0"></span></td>
+						<td class="main-uch-col3 unit-char-stat-primary-talent"><span id="main-uch-stat-wisdom-talent" class="stat-v stat-b" data-s="0"></span></td>
+						<td class="main-uch-col4 unit-char-stat-primary-skill"><span id="main-uch-stat-wisdom-skill" class="stat-v stat-b" data-s="0"></span></td>
+						<td class="main-uch-col5 unit-char-stat-primary-equipment"><span id="main-uch-stat-wisdom-equipment" class="stat-v stat-b" data-s="0"></span></td>
+						<td class="main-uch-col6 unit-char-stat-primary-status"><span id="main-uch-stat-wisdom-status" class="stat-v stat-b" data-s="0"></span></td>
+						<td class="main-uch-col7 unit-char-stat-primary-total"><span id="main-uch-stat-wisdom-total" class="stat-v" data-s="0"></span></td>
+					</tr>
+					<tr class="pstat primary-stat-4">
+						<td class="main-uch-col1 unit-char-stat-primary-name">Charm</td>
+						<td class="main-uch-col2 unit-char-stat-primary-base"><span id="main-uch-stat-charm-base" class="stat-v" data-s="0"></span></td>
+						<td class="main-uch-col3 unit-char-stat-primary-talent"><span id="main-uch-stat-charm-talent" class="stat-v stat-b" data-s="0"></span></td>
+						<td class="main-uch-col4 unit-char-stat-primary-skill"><span id="main-uch-stat-charm-skill" class="stat-v stat-b" data-s="0"></span></td>
+						<td class="main-uch-col5 unit-char-stat-primary-equipment"><span id="main-uch-stat-charm-equipment" class="stat-v stat-b" data-s="0"></span></td>
+						<td class="main-uch-col6 unit-char-stat-primary-status"><span id="main-uch-stat-charm-status" class="stat-v stat-b" data-s="0"></span></td>
+						<td class="main-uch-col7 unit-char-stat-primary-total"><span id="main-uch-stat-charm-total" class="stat-v" data-s="0"></span></td>
+					</tr>
+					<tr class="pstat primary-stat-4">
+						<td class="main-uch-col1 unit-char-stat-primary-name">Luck</td>
+						<td class="main-uch-col2 unit-char-stat-primary-base"><span id="main-uch-stat-luck-base" class="stat-v" data-s="0"></span></td>
+						<td class="main-uch-col3 unit-char-stat-primary-talent"><span id="main-uch-stat-luck-talent" class="stat-v stat-b" data-s="0"></span></td>
+						<td class="main-uch-col4 unit-char-stat-primary-skill"><span id="main-uch-stat-luck-skill" class="stat-v stat-b" data-s="0"></span></td>
+						<td class="main-uch-col5 unit-char-stat-primary-equipment"><span id="main-uch-stat-luck-equipment" class="stat-v stat-b" data-s="0"></span></td>
+						<td class="main-uch-col6 unit-char-stat-primary-status"><span id="main-uch-stat-luck-status" class="stat-v stat-b" data-s="0"></span></td>
+						<td class="main-uch-col7 unit-char-stat-primary-total"><span id="main-uch-stat-luck-total" class="stat-v" data-s="0"></span></td>
+					</tr>
+					<tr class="pstat primary-stat-5 table-lineseparator-top">
+						<td class="main-uch-col1 unit-char-stat-primary-name">=)</td>
+						<td class="main-uch-col2 unit-char-stat-primary-base"><span id="main-uch-stat-allstats-base" class="stat-v" data-s="0"></span></td>
+						<td class="main-uch-col3 unit-char-stat-primary-talent"><span id="main-uch-stat-allstats-talent" class="stat-v stat-b" data-s="0"></span></td>
+						<td class="main-uch-col4 unit-char-stat-primary-skill"><span id="main-uch-stat-allstats-skill" class="stat-v stat-b" data-s="0"></span></td>
+						<td class="main-uch-col5 unit-char-stat-primary-equipment"><span id="main-uch-stat-allstats-equipment" class="stat-v stat-b" data-s="0"></span></td>
+						<td class="main-uch-col6 unit-char-stat-primary-status"><span id="main-uch-stat-allstats-status" class="stat-v stat-b" data-s="0"></span></td>
+						<td class="main-uch-col7 unit-char-stat-primary-total"><span id="main-uch-stat-allstats-total" class="stat-v" data-s="0"></span></td>
+					</tr>
+					<tr><td colspan="7">&nbsp;</td></tr>
+					<tr class="table-lineseparator-top">
+						<td class="main-uch-col1 unit-char-stat-talent-label" rowspan="2">Talent Points</td>
+						<td class="main-uch-col2 unit-char-stat-talent-used">Used</td>
+						<td class="main-uch-col3 unit-char-stat-talent-unsused">Unused</td>
+						<td class="main-uch-col4 unit-char-stat-talent-nothing">from</td>
+						<td class="main-uch-col5 unit-char-stat-talent-level">Level</td>
+						<td class="main-uch-col6 unit-char-stat-talent-spirit">Spirit</td>
+						<td class="main-uch-col7 unit-char-stat-talent-total">Total</td>
+					</tr>
+					<tr>
+						<!-- <td class="main-uch-col1 unit-char-stat-talent-label">Talent Points</td> -->
+						<td class="main-uch-col2 unit-char-stat-talent-used"><span id="main-uch-stat-talent-used"></span></td>
+						<td class="main-uch-col3 unit-char-stat-talent-unsused"><span id="main-uch-stat-talent-unused"></span></td>
+						<td class="main-uch-col4 unit-char-stat-talent-nothing">&nbsp;</td>
+						<td class="main-uch-col5 unit-char-stat-talent-level"><span id="main-uch-stat-talent-level"></span></td>
+						<td class="main-uch-col6 unit-char-stat-talent-spirit"><span id="main-uch-stat-talent-spirit"></span></td>
+						<td class="main-uch-col7 unit-char-stat-talent-total"><span id="main-uch-stat-talent-total"></span></td>
+					</tr>
+					<tr class="table-lineseparator-top"><td class="unit-char-stat-talent-add-toggle" colspan="7">
+						<span id="main-uch-talent-add-show-button" class="talenttoggleshow" data-v="hidden">▼</span>
+						<span id="main-uch-talent-add-hide-button" class="talenttogglehide" data-v="hidden">▲</span>
+					</td></tr>
+				</tbody>
+			</table>
+			<table id="main-unit-uch-info3" class="float float-left" data-v="hidden">
+				<tbody>
+					<tr class="label talent-add table-header">
+						<td class="main-uch-col1 unit-char-stat-talent-add-label">Spend Points</td>
+						<td class="main-uch-col2 unit-char-stat-talent-add-upgrade"><span id="main-uch-talent-add-upgrade">Upgrade</span></td>
+						<td class="main-uch-col3 unit-char-stat-talent-add-new"><span id="main-uch-talent-add-new">New</span></td>
+						<td class="main-uch-col4 unit-char-stat-talent-add-button"><span id="main-uch-talent-add-button">+1</span></td>
+						<td class="main-uch-col5 unit-char-stat-talent-add-button2"><span id="main-uch-talent-add-button2">+10</span></td>
+						<td class="main-uch-col6 unit-char-stat-talent-add-button3"><span id="main-uch-talent-add-button3">Max</span></td>
+						<td class="main-uch-col7 unit-char-stat-talent-add-pointsused"><span id="main-uch-talent-add-pointsused">Points used</span></td>
+					</tr>
+					<tr class="talent-add primary-stat-1">
+						<td class="main-uch-col1 unit-char-stat-talent-add-name">Strength</td>
+						<td class="main-uch-col2 unit-char-stat-talent-add-upgrade"><span id="main-uch-talent-add-strength-upgrade" class="stat-v"></span></td>
+						<td class="main-uch-col3 unit-char-stat-talent-add-new"><span id="main-uch-talent-add-strength-new" class="stat-v"></span></td>
+						<td class="main-uch-col4 unit-char-stat-talent-add-button1">
+							<span id="main-uch-talent-add-strength-button1" class="talentupgradebutton" data-v="0">▶</span></td>
+						<td class="main-uch-col5 unit-char-stat-talent-add-button2">
+							<span id="main-uch-talent-add-strength-button2" class="talentupgradebutton" data-v="0">▶</span></td>
+						<td class="main-uch-col6 unit-char-stat-talent-add-button3">
+							<span id="main-uch-talent-add-strength-button3" class="talentupgradebutton" data-v="0">▶</span></td>
+						<td class="main-uch-col7 unit-char-stat-talent-add-pointsused">
+							<span id="main-uch-talent-add-strength-pointsused-default" class="stat-v"></span>
+							(+<span id="main-uch-talent-add-strength-pointsused-upgrade" class="stat-v"></span>)
+						</td>
+					</tr>
+					<tr class="talent-add primary-stat-1">
+						<td class="main-uch-col1 unit-char-stat-talent-add-name">Constitution</td>
+						<td class="main-uch-col2 unit-char-stat-talent-add-upgrade"><span id="main-uch-talent-add-constitution-upgrade" class="stat-v"></span></td>
+						<td class="main-uch-col3 unit-char-stat-talent-add-new"><span id="main-uch-talent-add-constitution-new" class="stat-v"></span></td>
+						<td class="main-uch-col4 unit-char-stat-talent-add-button1">
+							<span id="main-uch-talent-add-constitution-button1" class="talentupgradebutton" data-v="0">▶</span></td>
+						<td class="main-uch-col5 unit-char-stat-talent-add-button2">
+							<span id="main-uch-talent-add-constitution-button2" class="talentupgradebutton" data-v="0">▶</span></td>
+						<td class="main-uch-col6 unit-char-stat-talent-add-button3">
+							<span id="main-uch-talent-add-constitution-button3" class="talentupgradebutton" data-v="0">▶</span></td>
+						<td class="main-uch-col7 unit-char-stat-talent-add-pointsused">
+							<span id="main-uch-talent-add-constitution-pointsused-default" class="stat-v"></span>
+							(+<span id="main-uch-talent-add-constitution-pointsused-upgrade" class="stat-v"></span>)
+						</td>
+					</tr>
+					<tr class="talent-add primary-stat-2">
+						<td class="main-uch-col1 unit-char-stat-talent-add-name">Agility</td>
+						<td class="main-uch-col2 unit-char-stat-talent-add-upgrade"><span id="main-uch-talent-add-agility-upgrade" class="stat-v"></span></td>
+						<td class="main-uch-col3 unit-char-stat-talent-add-new"><span id="main-uch-talent-add-agility-new" class="stat-v"></span></td>
+						<td class="main-uch-col4 unit-char-stat-talent-add-button1">
+							<span id="main-uch-talent-add-agility-button1" class="talentupgradebutton" data-v="0">▶</span></td>
+						<td class="main-uch-col5 unit-char-stat-talent-add-button2">
+							<span id="main-uch-talent-add-agility-button2" class="talentupgradebutton" data-v="0">▶</span></td>
+						<td class="main-uch-col6 unit-char-stat-talent-add-button3">
+							<span id="main-uch-talent-add-agility-button3" class="talentupgradebutton" data-v="0">▶</span></td>
+						<td class="main-uch-col7 unit-char-stat-talent-add-pointsused">
+							<span id="main-uch-talent-add-agility-pointsused-default" class="stat-v"></span>
+							(+<span id="main-uch-talent-add-agility-pointsused-upgrade" class="stat-v"></span>)
+						</td>
+					</tr>
+					<tr class="talent-add primary-stat-2">
+						<td class="main-uch-col1 unit-char-stat-talent-add-name">Dexterity</td>
+						<td class="main-uch-col2 unit-char-stat-talent-add-upgrade"><span id="main-uch-talent-add-dexterity-upgrade" class="stat-v"></span></td>
+						<td class="main-uch-col3 unit-char-stat-talent-add-new"><span id="main-uch-talent-add-dexterity-new" class="stat-v"></span></td>
+						<td class="main-uch-col4 unit-char-stat-talent-add-button1">
+							<span id="main-uch-talent-add-dexterity-button1" class="talentupgradebutton" data-v="0">▶</span></td>
+						<td class="main-uch-col5 unit-char-stat-talent-add-button2">
+							<span id="main-uch-talent-add-dexterity-button2" class="talentupgradebutton" data-v="0">▶</span></td>
+						<td class="main-uch-col6 unit-char-stat-talent-add-button3">
+							<span id="main-uch-talent-add-dexterity-button3" class="talentupgradebutton" data-v="0">▶</span></td>
+						<td class="main-uch-col7 unit-char-stat-talent-add-pointsused">
+							<span id="main-uch-talent-add-dexterity-pointsused-default" class="stat-v"></span>
+							(+<span id="main-uch-talent-add-dexterity-pointsused-upgrade" class="stat-v"></span>)
+						</td>
+					</tr>
+					<tr class="talent-add primary-stat-3">
+						<td class="main-uch-col1 unit-char-stat-talent-add-name">Intelligence</td>
+						<td class="main-uch-col2 unit-char-stat-talent-add-upgrade"><span id="main-uch-talent-add-intelligence-upgrade" class="stat-v"></span></td>
+						<td class="main-uch-col3 unit-char-stat-talent-add-new"><span id="main-uch-talent-add-intelligence-new" class="stat-v"></span></td>
+						<td class="main-uch-col4 unit-char-stat-talent-add-button1">
+							<span id="main-uch-talent-add-intelligence-button1" class="talentupgradebutton" data-v="0">▶</span></td>
+						<td class="main-uch-col5 unit-char-stat-talent-add-button2">
+							<span id="main-uch-talent-add-intelligence-button2" class="talentupgradebutton" data-v="0">▶</span></td>
+						<td class="main-uch-col6 unit-char-stat-talent-add-button3">
+							<span id="main-uch-talent-add-intelligence-button3" class="talentupgradebutton" data-v="0">▶</span></td>
+						<td class="main-uch-col7 unit-char-stat-talent-add-pointsused">
+							<span id="main-uch-talent-add-intelligence-pointsused-default" class="stat-v"></span>
+							(+<span id="main-uch-talent-add-intelligence-pointsused-upgrade" class="stat-v"></span>)
+						</td>
+					</tr>
+					<tr class="talent-add primary-stat-3">
+						<td class="main-uch-col1 unit-char-stat-talent-add-name">Wisdom</td>
+						<td class="main-uch-col2 unit-char-stat-talent-add-upgrade"><span id="main-uch-talent-add-wisdom-upgrade" class="stat-v"></span></td>
+						<td class="main-uch-col3 unit-char-stat-talent-add-new"><span id="main-uch-talent-add-wisdom-new" class="stat-v"></span></td>
+						<td class="main-uch-col4 unit-char-stat-talent-add-button1">
+							<span id="main-uch-talent-add-wisdom-button1" class="talentupgradebutton" data-v="0">▶</span></td>
+						<td class="main-uch-col5 unit-char-stat-talent-add-button2">
+							<span id="main-uch-talent-add-wisdom-button2" class="talentupgradebutton" data-v="0">▶</span></td>
+						<td class="main-uch-col6 unit-char-stat-talent-add-button3">
+							<span id="main-uch-talent-add-wisdom-button3" class="talentupgradebutton" data-v="0">▶</span></td>
+						<td class="main-uch-col7 unit-char-stat-talent-add-pointsused">
+							<span id="main-uch-talent-add-wisdom-pointsused-default" class="stat-v"></span>
+							(+<span id="main-uch-talent-add-wisdom-pointsused-upgrade" class="stat-v"></span>)
+						</td>
+					</tr>
+					<tr class="talent-add primary-stat-4">
+						<td class="main-uch-col1 unit-char-stat-talent-add-name">Charm</td>
+						<td class="main-uch-col2 unit-char-stat-talent-add-upgrade"><span id="main-uch-talent-add-charm-upgrade" class="stat-v"></span></td>
+						<td class="main-uch-col3 unit-char-stat-talent-add-new"><span id="main-uch-talent-add-charm-new" class="stat-v"></span></td>
+						<td class="main-uch-col4 unit-char-stat-talent-add-button1">
+							<span id="main-uch-talent-add-charm-button1" class="talentupgradebutton" data-v="0">▶</span></td>
+						<td class="main-uch-col5 unit-char-stat-talent-add-button2">
+							<span id="main-uch-talent-add-charm-button2" class="talentupgradebutton" data-v="0">▶</span></td>
+						<td class="main-uch-col6 unit-char-stat-talent-add-button3">
+							<span id="main-uch-talent-add-charm-button3" class="talentupgradebutton" data-v="0">▶</span></td>
+						<td class="main-uch-col7 unit-char-stat-talent-add-pointsused">
+							<span id="main-uch-talent-add-charm-pointsused-default" class="stat-v"></span>
+							(+<span id="main-uch-talent-add-charm-pointsused-upgrade" class="stat-v"></span>)
+						</td>
+					</tr>
+					<tr class="talent-add primary-stat-4">
+						<td class="main-uch-col1 unit-char-stat-talent-add-name">Luck</td>
+						<td class="main-uch-col2 unit-char-stat-talent-add-upgrade"><span id="main-uch-talent-add-luck-upgrade" class="stat-v"></span></td>
+						<td class="main-uch-col3 unit-char-stat-talent-add-new"><span id="main-uch-talent-add-luck-new" class="stat-v"></span></td>
+						<td class="main-uch-col4 unit-char-stat-talent-add-button1">
+							<span id="main-uch-talent-add-luck-button1" class="talentupgradebutton" data-v="0">▶</span></td>
+						<td class="main-uch-col5 unit-char-stat-talent-add-button2">
+							<span id="main-uch-talent-add-luck-button2" class="talentupgradebutton" data-v="0">▶</span></td>
+						<td class="main-uch-col6 unit-char-stat-talent-add-button3">
+							<span id="main-uch-talent-add-luck-button3" class="talentupgradebutton" data-v="0">▶</span></td>
+						<td class="main-uch-col7 unit-char-stat-talent-add-pointsused">
+							<span id="main-uch-talent-add-luck-pointsused-default" class="stat-v"></span>
+							(+<span id="main-uch-talent-add-luck-pointsused-upgrade" class="stat-v"></span>)
+						</td>
+					</tr>
+					<tr class="talent-add primary-stat-5">
+						<td class="main-uch-col1 unit-char-stat-talent-add-reset">
+							<span id="main-uch-talent-reset-button" class="talentresetbutton" data-v="0">Reset</span>
+						</td>
+						<td class="main-uch-col2 unit-char-stat-talent-add-confirm" colspan="2">
+							<span id="main-uch-talent-confirm-button" class="talentconfirmbutton" data-v="0">Confirm</span>
+						</td>
+						<td class="main-uch-col4 unit-char-stat-talent-add-remaining" colspan="3">Remaining</td>
+						<td class="main-uch-col7 unit-char-stat-talent-add-pointsused">
+							<span id="main-uch-talent-add-total-unused"></span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<table id="main-unit-uch-info4" class="float float-left">
+				<tbody>
+					<tr><td>Threat</td><td id="main-uch-threat" class="stat-v"></td></tr>
+					<tr><td>Tenacity</td><td id="main-uch-tenacity" class="stat-v"></td></tr>
+					<tr><td>Willpower</td><td id="main-uch-willpower" class="stat-v"></td></tr>
+					<tr><td>Evasion</td><td id="main-uch-evasion" class="stat-v"></td></tr>
+					<tr><td>Dodge</td><td id="main-uch-dodge" class="stat-v"></td></tr>
+					<tr><td>---</td><td>---</td></tr>
+					<tr><td>Attack</td><td id="main-uch-base-attack" class="stat-v"></td></tr>
+					<tr><td>Magic Power</td><td id="main-uch-base-magicpower" class="stat-v"></td></tr>
+					<tr><td>Penetration</td><td id="main-uch-base-penetration" class="stat-v"></td></tr>
+					<tr><td>Accuracy</td><td id="main-uch-base-accuracy" class="stat-v"></td></tr>
+					<tr><td>Critical</td><td id="main-uch-base-critical" class="stat-v"></td></tr>
+					<tr><td>Critical Damage</td><td id="main-uch-base-criticaldamage" class="stat-v"></td></tr>
+					<tr><td>Parry</td><td id="main-uch-base-parry" class="stat-v"></td></tr>
+					<tr><td>Block</td><td id="main-uch-base-block" class="stat-v"></td></tr>
+				</tbody>
+			</table>
+		</div>
+		
+	</section>
+	<section id="main-unit-transport">Transport view body</section>
+	<section id="main-map">map view body</section>
+</div>
+<div id="bodyview-loaded" class="hidden"></div>

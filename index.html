@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test</title>
+	<meta charset=utf-8>
+	<meta name=description content="balmung">
+	<meta name=viewport content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/default.min.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/game.css">
+	<link rel="stylesheet" type="text/css" href="css/game-conditional.css">
+</head>
+<body>
+
+	<div id="game-views" class="noselect">
+		<div id="partylist" 	class="game-view" game-ui-init-party="view/partylist.html"></div>
+
+		<div id="unitlist" 		class="game-view" game-ui-init-unit="view/unitlist.html" data-showlist="1"></div>
+		<div id="groupunitlist" class="game-view" game-ui-init-groupunit="view/groupunitlist.html" data-showlist="0"></div>
+		<div id="raidunitlist" 	class="game-view" game-ui-init-raidunit="view/raidunitlist.html" data-showlist="0"></div>
+
+		<div id="mainview" 		class="game-view" game-ui-init-main="view/mainview.html"></div>
+		
+		<div id="maplogview" 	class="game-view" game-ui-init-maplog="view/maplogview.html"></div>
+	</div>
+	
+	<div id="debugview" game-ui-init-debug="view/debug.html"></div>
+	<div><!-- 
+		<script src="js/lib/d3.min.js"></script>
+		<script src="js/lib/priority-queue.min.js"></script>
+		<script src="js/lib/language.js"></script>
+		<script src="js/lib/terrain.js"></script> -->
+		<script src="js/lib/fpsmeter.min.js"></script>
+		<script src="js/lib/HackTimer.js"></script>
+		<script src="js/lib/HackTimerWorker.min.js"></script>
+		<script src="js/game/main.js" type="module"></script>
+	</div>
+</body>
+</html>

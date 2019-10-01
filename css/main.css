@@ -1,0 +1,102 @@
+html, body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+.hidden {
+	display: none;
+}
+
+#debugsettings {
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	background-color: rgba(250,250,250,0.4);
+	padding: 3px;
+	border-radius: 5px;
+	width: 217px;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: calc(100% - 40px);
+  height: 12px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+#fpsmeterengine,
+#fpsmetercontainer {
+	position: absolute;
+	right: 110px;
+	bottom: 76px;
+}
+#fpsmetercontainer {
+	right: 223px;
+}
+
+ul.horizontal {
+	width: 100%;
+}
+ul.horizontal li {
+	float: left;
+	padding: 2px 8px 2px 0;
+}
+
+ul.horizontal li:nth-last-child() {
+  clear: both;
+} 
+ul.links li {
+	cursor: pointer;
+}
+ul li.selected {
+	font-weight: bold;
+}
+.float-left {
+	float: left;
+}
+.float-right {
+	float: right;
+}
+.float:nth-last-child() {
+  clear: both;
+} 
+
+/* Glyphs */
+.si-glyph {
+	width: 11px;
+	height: 11px;
+}
+svg.si-glyph-male {
+    fill: currentColor;
+}
+.center {
+	text-align: center;
+}
+
