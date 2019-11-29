@@ -249,6 +249,28 @@ td, li { font-size: 8pt; line-height: 15px; font-weight: normal; }
 /*************************\
  *** Body View ***********
 \*************************/
+.staticon {
+	display: inline-block;
+	text-align: center;
+	width: 12px;
+}
+
+
+#main-title #main-title-overview,
+#main-title .body-subtitle-container {
+	padding: 0 5px;
+	margin-right: 2px;
+	border-bottom: black solid 2px;
+}
+#main-title[data-view="0"] #main-title-overview,
+#main-title[data-view="1"] .body-subtitle-container, 
+#main-title[data-view="2"] .body-subtitle-container, 
+#main-title[data-view="3"] .body-subtitle-container, 
+#main-title[data-view="4"] .body-subtitle-container, 
+#main-title[data-view="5"] .body-subtitle-container {
+	border-bottom-color: cyan;
+}
+
 #main-title .body-title,
 #main-title .body-subtitle {
 	display: none;
@@ -287,26 +309,14 @@ td, li { font-size: 8pt; line-height: 15px; font-weight: normal; }
 }
 #main-body ul.horizontal li {
 	display: inline-block;
-	width: 80px;
+	/*width: 100px;*/
 }
-#main-body[data-view="0"] #main-overview {
-	display: block;
-}
-#main-body[data-view="1"] #main-group {
-	display: block;
-}
-#main-body[data-view="2"] #main-unit-character {
-	display: block;
-}
-#main-body[data-view="3"] #main-unit-transport {
-	display: block;
-}
-#main-body[data-view="4"] #main-map {
-	display: block;
-}
-#main-body[data-view="5"] #main-party-new {
-	display: block;
-}
+#main-body[data-view="0"] #main-overview,
+#main-body[data-view="1"] #main-group,
+#main-body[data-view="2"] #main-unit-character,
+#main-body[data-view="3"] #main-unit-transport,
+#main-body[data-view="4"] #main-map,
+#main-body[data-view="5"] #main-party-new,
 #main-body[data-view="6"] #main-raid {
 	display: block;
 }
@@ -345,37 +355,34 @@ td, li { font-size: 8pt; line-height: 15px; font-weight: normal; }
 #main-group {
 
 }
-#main-group-submenu[data-view="1"] li#main-group-submenu-overview {
-	font-weight: bold;
+#main-group-submenu {
+	display: block;
+	width: 100%;
+	height: 24px;
+	position: relative;
 }
-#main-group-submenu[data-view="2"] li#main-group-submenu-units {
-	font-weight: bold;
+#main-group-submenu li {
+	padding: 0 5px;
+	text-align: center;
+	margin-right: 2px;
+	border-bottom: black solid 2px;
 }
-#main-group-submenu[data-view="3"] li#main-group-submenu-inventories {
-	font-weight: bold;
-}
-#main-group-submenu[data-view="4"] li#main-group-submenu-tasks {
-	font-weight: bold;
-}
-#main-group-submenu[data-view="5"] li#main-group-submenu-map {
-	font-weight: bold;
+
+#main-group[data-groupsubview="1"] li#main-group-submenu-overview,
+#main-group[data-groupsubview="2"] li#main-group-submenu-units,
+#main-group[data-groupsubview="3"] li#main-group-submenu-inventories,
+#main-group[data-groupsubview="4"] li#main-group-submenu-tasks,
+#main-group[data-groupsubview="5"] li#main-group-submenu-map {
+	border-bottom-color: cyan;
 }
 #main-group-body section {
 	display: none;
 }
-#main-group-body[data-view="1"] section#main-group-body-overview {
-	display: block;
-}
-#main-group-body[data-view="2"] section#main-group-body-units {
-	display: block;
-}
-#main-group-body[data-view="3"] section#main-group-body-inventories {
-	display: block;
-}
-#main-group-body[data-view="4"] section#main-group-body-tasks {
-	display: block;
-}
-#main-group-body[data-view="5"] section#main-group-body-map {
+#main-group[data-groupsubview="1"] section#main-group-body-overview,
+#main-group[data-groupsubview="2"] section#main-group-body-units,
+#main-group[data-groupsubview="3"] section#main-group-body-inventories,
+#main-group[data-groupsubview="4"] section#main-group-body-tasks,
+#main-group[data-groupsubview="5"] section#main-group-body-map {
 	display: block;
 }
 
@@ -386,6 +393,41 @@ td, li { font-size: 8pt; line-height: 15px; font-weight: normal; }
 
 
 /* Main: Character */
+/* Main : Character > Information subview */
+#main-title-unit-character-info2 {
+	font-size: 70%;
+}
+#main-unit-uch-submenu {
+	display: block;
+	width: 100%;
+	height: 24px;
+	position: relative;
+}
+#main-unit-uch-submenu li {
+	padding: 0 5px;
+	text-align: center;
+	margin-right: 2px;
+	border-bottom: black solid 2px;
+	font-weight: bold;
+}
+
+#main-unit-character[data-unitsubview="1"] #main-unit-uch-submenu-information,
+#main-unit-character[data-unitsubview="2"] #main-unit-uch-submenu-skills,
+#main-unit-character[data-unitsubview="3"] #main-unit-uch-submenu-inventory,
+#main-unit-character[data-unitsubview="4"] #main-unit-uch-submenu-titles {
+	border-bottom-color: cyan;
+}
+
+.main-unit-uch-subview {
+	display: none;
+}
+#main-unit-character[data-unitsubview="1"] #main-unit-uch-information,
+#main-unit-character[data-unitsubview="2"] #main-unit-uch-skills,
+#main-unit-character[data-unitsubview="3"] #main-unit-uch-inventory,
+#main-unit-character[data-unitsubview="4"] #main-unit-uch-titles {
+	display: block;
+}
+
 #main-unit-uch-information {
 	width: 100%;
 	vertical-align: top;
@@ -403,6 +445,17 @@ td, li { font-size: 8pt; line-height: 15px; font-weight: normal; }
 }
 #main-unit-uch-info1 .main-uch-col2 {
 	width: 140px;
+	max-width: 140px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+#main-unit-uch-info1 .main-uch-col2:hover {
+    overflow: visible; 
+    white-space: normal;
+    height:auto;
+    z-index: 9999;
 }
 /* table info2 */
 #main-unit-uch-info2 .main-uch-col1 {
@@ -645,6 +698,95 @@ td, li { font-size: 8pt; line-height: 15px; font-weight: normal; }
 .talentconfirmbutton:hover {
 	background-color: rgba(0,0,0,0.2);
 }
+
+/* Main : Character > Skills subview */
+
+
+
+
+
+
+/* Main : Character > Inventory subview */
+#main-unit-uch-inventory-equipstat {
+	display: block;
+}
+#main-unit-uch-inventory-equipstat {
+	margin-right: 10px;
+}
+#main-unit-uch-inventory-equipstat .main-uch-col1 {
+	width: 60px;
+}
+#main-unit-uch-inventory-equipstat .main-uch-col2 {
+	width: 55px;
+}
+#main-unit-uch-inventory-equipstat .main-uch-col3 {
+	width: 85px;
+}
+
+#main-unit-uch-inventory-equipped,
+#main-unit-uch-inventory-equipped > div {
+	width: 373px;
+}
+.inventory {
+	margin: 5px 0;
+	background-image: url("/img/bp/inventory.png");
+	background-repeat: repeat;
+	min-height: 106px;
+	background-position: 2px 2px;
+	width: 373px;
+}
+.inventory .inv-item {
+	float: left;
+	width: 48px;
+	height: 48px;
+	margin-right: 3px;
+	margin-bottom: 3px;
+	position: relative;
+	padding: 1px;
+}
+.inventory .inv-item .inv-item-border,
+.inventory .inv-item .inv-item-effect,
+.inventory .inv-item .inv-item-stats {
+	width: 54px;
+	height: 54px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.inv-item-stats-quality {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	border-radius: 5px;
+	height: 12px;
+	text-align: center;
+	line-height: 12px;
+	font-size: 10px;
+	padding: 0 4px;
+}
+.inv-item-stats-refine {
+	position: absolute;
+	top: 1px;
+	right: 4px;
+}
+.inv-item-stats-durability {
+	position: absolute;
+	bottom: 0px;
+	right: 4px;
+	font-size: 75%;
+}
+.inv-item-stats-gems {
+	position: absolute;
+	bottom: 0px;
+	left: 4px;
+}
+
+
+/* Main : Character > Titles subview */
+
+
+
+
 
 /*************************\
  *** Map View  ***********

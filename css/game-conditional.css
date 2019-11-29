@@ -1,6 +1,10 @@
 /*************************\
  *** Unit Levels *********
 \*************************/
+.ulv {
+	color: black;
+	background-color: white;
+}
 /* 1~19 */
 .ulv[data-v="1"], .ulv[data-v="2"], .ulv[data-v="3"], .ulv[data-v="4"], .ulv[data-v="5"], 
 .ulv[data-v="6"], .ulv[data-v="7"], .ulv[data-v="8"], .ulv[data-v="9"], .ulv[data-v="10"],
@@ -282,6 +286,17 @@
 /*************************\
  *** Living Status *******
 \*************************/
+@keyframes blinkfade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.3; }
+    to { opacity: 1.0; }
+}                                                                                                                                                                                                                                  
+
+@-webkit-keyframes blinkfade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.3; }
+    to { opacity: 1.0; }
+}
 /*****************\
  ****** RED ******
  * Stamina 0-5
@@ -297,7 +312,10 @@
 /* Energy */
 .uen[data-v="0"], .uen[data-v="1"], .uen[data-v="2"]{
 	color: red;
+	-webkit-animation: blinkfade 0.7s step-end infinite;
+            animation: blinkfade 0.7s step-end infinite;
 }
+
 
 /*****************\
  **** ORANGE *****
@@ -317,6 +335,8 @@
 .uen[data-v="3"], .uen[data-v="4"], .uen[data-v="5"], .uen[data-v="6"],
 .uen[data-v="7"], .uen[data-v="8"], .uen[data-v="9"], .uen[data-v="10"] {
 	color: #E67E22;
+	-webkit-animation: blinkfade 1.4s infinite;
+            animation: blinkfade 1.4s infinite;
 }
 
 /*****************\
@@ -404,3 +424,150 @@
 .uen[data-v="96"], .uen[data-v="97"], .uen[data-v="98"], .uen[data-v="99"], .uen[data-v="100"] {
 	color: cyan;
 }
+
+
+/*************************\
+ *** Item Rarity *********
+\*************************/
+
+/* 1	Common 		EDFBFF */
+.inv-item-border {
+	/*border: 4px solid transparent;*/
+	background-size: 54px 54px;
+}
+.inv-item-border[data-rarity="1"] {
+	/*border-image:url("/img/bp/item-1.png") 9 round;*/
+	background-image:url("/img/bp/item-1.png");
+}
+/* 2	Uncommon 	B6D7D8 */
+.inv-item-border[data-rarity="2"] {
+	/*border-image:url("/img/bp/item-2.png") 9 round;*/
+	background-image:url("/img/bp/item-2.png");
+}
+/* 3	Rare 		51C692 */
+.inv-item-border[data-rarity="3"] {
+	/*border-image:url("/img/bp/item-3.png") 9 round;*/
+	background-image:url("/img/bp/item-3.png");
+}
+/* 4	Very Rare 	7AEF85 */
+.inv-item-border[data-rarity="4"] {
+	/*border-image:url("/img/bp/item-4.png") 9 round;*/
+	background-image:url("/img/bp/item-4.png");
+}
+/* 5	Exotic 		FFC200 */
+.inv-item-border[data-rarity="5"] {
+	/*border-image:url("/img/bp/item-5.png") 9 round;*/
+	background-image:url("/img/bp/item-5.png");
+}
+/* 6	Unique 		8559FF */
+.inv-item-border[data-rarity="6"] {
+	/*border-image:url("/img/bp/item-6.png") 9 round;*/
+	background-image:url("/img/bp/item-6.png");
+}
+/* 7	Legendary 	FF4646 */
+.inv-item-border[data-rarity="7"] {
+	/*border-image:url("/img/bp/item-7.png") 9 round;*/
+	background-image:url("/img/bp/item-7.png");
+}
+/* 8	Artifact */
+.inv-item-border[data-rarity="10"] {
+	/*border-image:url("/img/bp/item-10.png") 9 round;*/
+	background-image:url("/img/bp/item-10.png");
+}
+
+/* Effect: default */
+.inv-item .inv-item-effect[data-sp="0"] {
+	background-image:url("/img/bp/itemeffect-default.png");
+	background-size: 54px 54px;
+}
+
+@-webkit-keyframes bordereffectmagic {
+    from { background-position: 0px; }
+    to { background-position: -216px; }  /* <-- width of spritesheet*/
+}
+
+@-moz-keyframes bordereffectmagic {
+    from { background-position: 0px; }
+    to { background-position: -216px; } /* <-- width of spritesheet*/
+}
+
+@-o-keyframes bordereffectmagic {
+    from { background-position: 0px; }
+    to { background-position: -216px; } /* <-- width of spritesheet*/
+}
+@keyframes bordereffectmagic {
+    from { background-position: 0px; }
+    to { background-position: -216px; } /* <-- width of spritesheet*/
+}
+/* Effect: Magic */
+.inv-item-effect[data-sp="1"] {
+    background-image: url("/img/bp/itemeffect-m2.png");
+    background-size: 216px 54px;
+    margin: 0 auto;    
+    -webkit-animation: bordereffectmagic 1s steps(4) infinite; 
+    -moz-animation: bordereffectmagic 1s steps(4) infinite;
+    -o-animation: bordereffectmagic 1s steps(4) infinite;
+    animation: bordereffectmagic 1s steps(4) infinite; 
+}​
+
+/* Effect: Burn */
+@-webkit-keyframes bordereffectburn {
+    from { background-position: 0px; }
+    to { background-position: -216px; }  /* <-- width of spritesheet*/
+}
+
+@-moz-keyframes bordereffectburn {
+    from { background-position: 0px; }
+    to { background-position: -216px; } /* <-- width of spritesheet*/
+}
+
+@-o-keyframes bordereffectburn {
+    from { background-position: 0px; }
+    to { background-position: -216px; } /* <-- width of spritesheet*/
+}
+@keyframes bordereffectburn {
+    from { background-position: 0px; }
+    to { background-position: -216px; } /* <-- width of spritesheet*/
+}
+.inv-item-effect[data-sp="2"] {
+    background-image: url("/img/bp/itemeffect-b.png");
+    background-size: 216px 54px;
+    margin: 0 auto;    
+    -webkit-animation: bordereffectburn 1s steps(4) infinite; 
+    -moz-animation: bordereffectburn 1s steps(4) infinite;
+    -o-animation: bordereffectburn 1s steps(4) infinite;
+    animation: bordereffectburn 1s steps(4) infinite;
+}​
+
+/* Item Quality */
+.inv-item-stats-quality {
+	background-color: #FFFFFF;
+}
+.inv-item-stats-quality[data-rarity="1"] {
+	background-color: #EDFBFF;
+}
+.inv-item-stats-quality[data-rarity="2"] {
+	background-color: #B6D7D8;
+	color: #fff;
+}
+.inv-item-stats-quality[data-rarity="3"] {
+	background-color: #51C692;
+}
+.inv-item-stats-quality[data-rarity="4"] {
+	background-color: #7AEF85;
+	color: #fff;
+}
+.inv-item-stats-quality[data-rarity="5"] {
+	background-color: #FFC200;
+	color: #fff;
+}
+.inv-item-stats-quality[data-rarity="6"] {
+	background-color: #8559FF;
+	color: #fff;
+}
+.inv-item-stats-quality[data-rarity="7"] {
+	background-color: #FF4646;
+	color: #fff;
+}
+
+/* Item Gems */

@@ -1,5 +1,6 @@
-import {stringToFunction, gameInitHTML, GameObject, toDecimal, isN, notZ, Flr} from './utils.js';
+import {stringToFunction, gameInitHTML, GameObject, toDecimal, Cl, isN, notZ, Flr} from './utils.js';
 import {characterRace, characterGender} from './data.js';
+import {txt} from './locale.js';
 
 
 export class UserInterface {
@@ -95,6 +96,13 @@ export class UserInterface {
 						unitlisthash: ""
 					},
 					unit: {
+						currentview: 1,
+						/**********************************\
+						 * 1 = information view
+						 * 2 = skills view
+						 * 3 = inventory view
+						 * 4 = titles view
+						\**********************************/
 						showtalentadd: false
 					}
 				}
@@ -252,6 +260,20 @@ export class UserInterface {
 		}
 		eleHandle("main-group-submenu-map").onclick = function () {
 			that.gameui.bodyview.subviewspecs.group.currentview = 5
+		}
+
+		/* Body View > Unit > Subview */
+		eleHandle("main-unit-uch-submenu-information").onclick = function () {
+			that.gameui.bodyview.subviewspecs.unit.currentview = 1
+		}
+		eleHandle("main-unit-uch-submenu-skills").onclick = function () {
+			that.gameui.bodyview.subviewspecs.unit.currentview = 2
+		}
+		eleHandle("main-unit-uch-submenu-inventory").onclick = function () {
+			that.gameui.bodyview.subviewspecs.unit.currentview = 3
+		}
+		eleHandle("main-unit-uch-submenu-titles").onclick = function () {
+			that.gameui.bodyview.subviewspecs.unit.currentview = 4
 		}
 		
 		/* Body View > Unit > Talent Add Toggle */
@@ -417,6 +439,7 @@ export class UserInterface {
 			this.loopBodyView(gameEngine)
 
 			/* Column 4 */
+			this.loopMapLogView(gameEngine)
 
 			this.gameui.debug.fpsuimeter.tick()
 		}
@@ -542,6 +565,10 @@ export class UserInterface {
 		this.updateBodyViewHeader()
 	}
 
+	loopMapLogView(gameEngine) {
+		
+		txt("worldtime", undefined, [this.gameInstance.currentWorld.dateFormat.toString()])
+	}
 	/**********************************\
 	 * Update Elements
 	\**********************************/
@@ -550,8 +577,8 @@ export class UserInterface {
 	updatePartyListHeader(groupCount, raidCount) {
 		this.constructor.updateAttributeByID("party-submenu", "data-view", this.gameui.partyview.currentview)
 		this.constructor.updateAttributeByID("party-body", "data-view", this.gameui.partyview.currentview)
-		this.constructor.updateTextByID("groupcount", groupCount.toString())
-		this.constructor.updateTextByID("raidcount", raidCount.toString())
+		txt("groupcount", undefined, [groupCount.toString()])
+		txt("raidcount", undefined, [raidCount.toString()])
 	}
 
 	updatePartyListParty() {
@@ -581,7 +608,7 @@ export class UserInterface {
 			/* set ID for group name element */
 			this.constructor.updateAttributeBySelector("#"+partyElementID+" .party-name", "id", partyElementID+"-name")
 			/* set the group name */
-			this.constructor.updateTextByID(partyElementID+"-name", groupData.core.name)
+			txt(partyElementID+"-name", undefined, [groupData.core.name])
 			this.clickParty(this, partyElementID, 1)
 		} else {
 
@@ -607,7 +634,7 @@ export class UserInterface {
 			/* set ID for character name element */
 			this.constructor.updateAttributeBySelector("#"+partyElementID+" .unit-name", "id", partyElementID+"-name")
 			/* set the character name */
-			this.constructor.updateTextByID(partyElementID+"-name", characterData.core.name)
+			txt(partyElementID+"-name", undefined, [characterData.core.name])
 			this.clickParty(this, partyElementID, 6)
 		} else {
 
@@ -622,8 +649,8 @@ export class UserInterface {
 	updateUnitListHeader(characterCount, transportCount) {
 		this.constructor.updateAttributeByID("unit-submenu", "data-view", this.gameui.unitview.currentview)
 		this.constructor.updateAttributeByID("unit-body", "data-view", this.gameui.unitview.currentview)
-		this.constructor.updateTextByID("charcount", characterCount.toString())
-		this.constructor.updateTextByID("trnscount", transportCount.toString())
+		txt("charcount", undefined, [characterCount.toString()])
+		txt("trnscount", undefined, [transportCount.toString()])
 	}
 	updateUnitListCharacter(unitElement, characterData) {
 		let unitElementID = this.gameui.unitview.template.characterprefix + characterData.core.unitid
@@ -642,7 +669,7 @@ export class UserInterface {
 			/* set ID for character name element */
 			this.constructor.updateAttributeBySelector("#"+unitElementID+" .unit-name", "id", unitElementID+"-name")
 			/* set the character name */
-			this.constructor.updateTextByID(unitElementID+"-name", characterData.core.name)
+			txt(unitElementID+"-name", undefined, [characterData.core.name])
 			/* set ID for character livingstatus element */
 			this.constructor.updateAttributeBySelector("#"+unitElementID+" .unit-livingstatus", "id", unitElementID+"-livingstatus")
 			/* set ID for character level element */
@@ -665,14 +692,30 @@ export class UserInterface {
 
 		this.constructor.updateAttributeByID(unitElementID+"-level", "data-v", characterData.core.level)
 		/* set stamina level */
-		let staminaPercent = Math.ceil(characterData.stats.secondary.stamina.current / characterData.stats.secondary.stamina.max * 100)
+		let staminaPercent = Cl(characterData.stats.secondary.stamina.current / characterData.stats.secondary.stamina.max * 100)
 		this.constructor.updateAttributeByID(unitElementID+"-stamina", "data-v", staminaPercent)
+		if (staminaPercent != 100) {
+			txt(unitElementID+"-stamina", undefined, [staminaPercent])
+		} else {
+			txt(unitElementID+"-stamina", "stamina")
+		}
+		
 		/* set satiety level */
-		let satietyPercent = Math.ceil(characterData.stats.secondary.satiety.current / characterData.stats.secondary.satiety.max * 100)
+		let satietyPercent = Cl(characterData.stats.secondary.satiety.current / characterData.stats.secondary.satiety.max * 100)
 		this.constructor.updateAttributeByID(unitElementID+"-satiety", "data-v", satietyPercent)
+		if (satietyPercent != 100) {
+			txt(unitElementID+"-satiety", undefined, [satietyPercent])
+		} else {
+			txt(unitElementID+"-satiety", "satiety")
+		}
 		/* set energy level */
-		let energyPercent = Math.ceil(characterData.stats.secondary.energy.current / characterData.stats.secondary.energy.max * 100)
+		let energyPercent = Cl(characterData.stats.secondary.energy.current / characterData.stats.secondary.energy.max * 100)
 		this.constructor.updateAttributeByID(unitElementID+"-energy", "data-v", energyPercent)
+		if (energyPercent != 100) {
+			txt(unitElementID+"-energy", undefined, [energyPercent])
+		} else {
+			txt(unitElementID+"-energy", "energy")
+		}
 	}
 	updateUnitListTransport(unitElement, transportData) {
 		let unitElementID = this.gameui.unitview.template.characterprefix + transportData.core.unitid
@@ -689,7 +732,7 @@ export class UserInterface {
 			/* set ID for character name element */
 			this.constructor.updateAttributeBySelector("#"+unitElementID+" .unit-name", "id", unitElementID+"-name")
 			/* set the character name */
-			this.constructor.updateTextByID(unitElementID+"-name", transportData.core.name)
+			txt(unitElementID+"-name", undefined, [transportData.core.name])
 			/* set ID for character livingstatus element */
 			this.constructor.updateAttributeBySelector("#"+unitElementID+" .unit-livingstatus", "id", unitElementID+"-livingstatus")
 			/* set ID for character level element */
@@ -721,8 +764,7 @@ export class UserInterface {
 
 	/* Main View > Group View */
 	updateBodyPartyView(gameEngine) {
-		this.constructor.updateAttributeByID("main-group-submenu", "data-view", this.gameui.bodyview.subviewspecs.group.currentview)
-		this.constructor.updateAttributeByID("main-group-body", "data-view", this.gameui.bodyview.subviewspecs.group.currentview)
+		this.constructor.updateAttributeByID("main-group", "data-groupsubview", this.gameui.bodyview.subviewspecs.group.currentview)
 	}
 
 	/* Main View > Raid View */
@@ -772,6 +814,9 @@ export class UserInterface {
 			this.gameui.bodyview.subviewspecs.groupnew.unitlisthash = newhash
 		} else {
 			// Nothing to do
+			for (var i = 0; i < gameEngine.characters.length; i++) {
+				this.updateBodyNewPartyViewCharacter(gameEngine.characters[i])
+			}
 		}
 	}
 
@@ -793,7 +838,7 @@ export class UserInterface {
 		/* set ID for character name element */
 		this.constructor.updateAttributeBySelector("#"+unitElementID+" .unit-name", "id", unitElementID+"-name")
 		/* set the character name */
-		this.constructor.updateTextByID(unitElementID+"-name", characterData.core.name)
+		txt(unitElementID+"-name", undefined, [characterData.core.name])
 		/* set ID for character livingstatus element */
 		this.constructor.updateAttributeBySelector("#"+unitElementID+" .unit-livingstatus", "id", unitElementID+"-livingstatus")
 		/* set ID for character level element */
@@ -808,12 +853,27 @@ export class UserInterface {
 	}
 
 	updateBodyNewPartyViewCharacter(characterData) {
-		
+		let unitElementID = this.gameui.newpartyview.template.characterwithoutpartyprefix + characterData.core.unitid
+		this.constructor.updateAttributeByID(unitElementID+"-level", "data-v", characterData.core.level)
+		/* set stamina level */
+		let staminaPercent = Cl(characterData.stats.secondary.stamina.current / characterData.stats.secondary.stamina.max * 100)
+		this.constructor.updateAttributeByID(unitElementID+"-stamina", "data-v", staminaPercent)
+		txt(unitElementID+"-stamina", undefined, [staminaPercent])
+		/* set satiety level */
+		let satietyPercent = Cl(characterData.stats.secondary.satiety.current / characterData.stats.secondary.satiety.max * 100)
+		this.constructor.updateAttributeByID(unitElementID+"-satiety", "data-v", satietyPercent)
+		txt(unitElementID+"-satiety", undefined, [satietyPercent])
+		/* set energy level */
+		let energyPercent = Cl(characterData.stats.secondary.energy.current / characterData.stats.secondary.energy.max * 100)
+		this.constructor.updateAttributeByID(unitElementID+"-energy", "data-v", energyPercent)
+		txt(unitElementID+"-energy", undefined, [energyPercent])
 	}
 
-	/* Main View > Character View*/
+	/* Main View > Character View */
 
 	updateBodyCharacterView(gameEngine) {
+		this.constructor.updateAttributeByID("main-unit-character", "data-unitsubview", this.gameui.bodyview.subviewspecs.unit.currentview)
+
 		let currentUnitID = this.gameui.bodyview.currentsubview.unit
 		let currentUnitObject = null
 		/* find the charcter object */
@@ -824,128 +884,200 @@ export class UserInterface {
 			currentUnitObject = gameEngine.characters[unitIndex] 
 		}
 		/* define unit index & check if different */
-		let currentIndex = parseInt(this.constructor.eleByID("main-unit-uch-information").getAttribute("data-unitindex"))
+		let currentIndex = parseInt(this.constructor.eleByID("main-unit-character").getAttribute("data-unitindex"))
 		let isNewIndex = false
 		if (currentIndex !== currentUnitObject.core.unitid) {
 			isNewIndex = true
-			this.constructor.updateAttributeByID("main-unit-uch-information", "data-unitindex", currentUnitObject.core.unitid.toLocaleString())
+			this.constructor.updateAttributeByID("main-unit-character", "data-unitindex", currentUnitObject.core.unitid.toLocaleString())
 		}
 
-		/* core */
-		this.constructor.updateTextByID("main-uch-name", currentUnitObject.core.name.toString())
-		this.constructor.updateTextByID("main-uch-race", characterRace[currentUnitObject.core.race])
-		this.constructor.updateTextByID("main-uch-gender", characterGender[currentUnitObject.core.gender])
+		let charCoreName = currentUnitObject.core.name.toString()
+		let charCoreRace = characterRace[currentUnitObject.core.race]
+		let charCoreGender = characterGender[currentUnitObject.core.gender]
+		let charCoreLevel = currentUnitObject.core.level.toLocaleString()
 
-		this.constructor.updateTextByID("main-uch-level", currentUnitObject.core.level.toLocaleString())
-		this.constructor.updateTextByID("main-uch-exptotal", currentUnitObject.core.exp.toLocaleString())
-		this.constructor.updateTextByID("main-uch-expectedexp", toDecimal(currentUnitObject.core.expectedexp, 0).toLocaleString())
-		this.constructor.updateTextByID("main-uch-exptospirit", toDecimal(currentUnitObject.core.exptospirit, 0).toLocaleString())
+		let charStatHPpercent = Cl(currentUnitObject.stats.secondary.health.current/currentUnitObject.stats.secondary.health.max*100).toLocaleString()
+		let charStatStaminapercent = Cl(currentUnitObject.stats.secondary.stamina.current/currentUnitObject.stats.secondary.stamina.max*100).toLocaleString()
+		let charStatSatietypercent = Cl(currentUnitObject.stats.secondary.satiety.current/currentUnitObject.stats.secondary.satiety.max*100).toLocaleString()
+		let charStatEnergypercent = Cl(currentUnitObject.stats.secondary.energy.current/currentUnitObject.stats.secondary.energy.max*100).toLocaleString()
 
 		let levelcurrentexp = currentUnitObject.getCharacterCurrentExpOfLevel()
 		let leveltotalexp = currentUnitObject.getCharacterCurrentLevelTotalExp()
-		let levelpercentexp = toDecimal(levelcurrentexp/leveltotalexp*100, 2)
-		this.constructor.updateTextByID("main-uch-exp-current", levelcurrentexp.toLocaleString())
-		this.constructor.updateTextByID("main-uch-exp-total", leveltotalexp.toLocaleString())
-		this.constructor.eleByID("main-uch-exp-progress").style.width = levelpercentexp.toString()+"%"
+		let levelper = levelcurrentexp/leveltotalexp
+		let levelwithdecimal = toDecimal(levelper,3).toString().slice(1)
+		let levelpercentexp = toDecimal(levelper*100, 2)
 
-		/* party */
-		let partyid = currentUnitObject.party.partyid === 0 ? "Not assigned" : currentUnitObject.party.partyid
-		this.constructor.updateTextByID("main-uch-party", partyid.toLocaleString())
+		/* header */
+		txt("main-title-unit-character-info", "title-char-info", [charCoreName,charCoreGender,charCoreRace,currentUnitObject.core.level])
+		txt("main-title-unit-character-info2", "title-char-info2", [levelwithdecimal,charStatHPpercent,charStatStaminapercent,charStatSatietypercent,charStatEnergypercent])
 
-		/* primary stats */
-		this.updateBodyCharacterViewPrimaryStat("strength", currentUnitObject.stats)
-		this.updateBodyCharacterViewPrimaryStat("constitution", currentUnitObject.stats)
-		this.updateBodyCharacterViewPrimaryStat("agility", currentUnitObject.stats)
-		this.updateBodyCharacterViewPrimaryStat("dexterity", currentUnitObject.stats)
-		this.updateBodyCharacterViewPrimaryStat("intelligence", currentUnitObject.stats)
-		this.updateBodyCharacterViewPrimaryStat("wisdom", currentUnitObject.stats)
-		this.updateBodyCharacterViewPrimaryStat("charm", currentUnitObject.stats)
-		this.updateBodyCharacterViewPrimaryStat("luck", currentUnitObject.stats)
-		this.updateBodyCharacterViewAllPrimaryStats(currentUnitObject.stats)
+		if (this.gameui.bodyview.subviewspecs.unit.currentview === 1) {
+			/* **************** *\
+			 * Character Subview : information 
+			\* **************** */
+			/* core: base */
+			txt("main-uch-name", undefined, [charCoreName])
+			txt("main-uch-race", undefined, [charCoreRace])
+			txt("main-uch-gender", undefined, [charCoreGender])
+			/* core: level stat */
+			txt("main-uch-level", "main-unit-level", [charCoreLevel,levelpercentexp])
+			txt("main-uch-exptotal", undefined, [currentUnitObject.core.exp.toLocaleString()])
+			txt("main-uch-expectedexp", undefined, [toDecimal(currentUnitObject.core.expectedexp, 0).toLocaleString()])
+			txt("main-uch-exptospirit", undefined, [toDecimal(currentUnitObject.core.exptospirit, 0).toLocaleString()])
+			/* core: current exp */
+			txt("main-uch-exp-current", undefined, [levelcurrentexp.toLocaleString()])
+			txt("main-uch-exp-total", undefined, [leveltotalexp.toLocaleString()])
+			this.constructor.eleByID("main-uch-exp-progress").style.width = levelpercentexp.toString()+"%"
 
-		/* talent points */
-		let talentpointsUsed = currentUnitObject.stats.talentpoints.total - currentUnitObject.stats.talentpoints.unused
-		this.constructor.updateTextByID("main-uch-stat-talent-used", talentpointsUsed.toLocaleString())
-		this.constructor.updateTextByID("main-uch-stat-talent-unused", currentUnitObject.stats.talentpoints.unused.toLocaleString())
-		this.constructor.updateTextByID("main-uch-stat-talent-level", currentUnitObject.stats.talentpoints.level.toLocaleString())
-		this.constructor.updateTextByID("main-uch-stat-talent-spirit", currentUnitObject.stats.talentpoints.spirit.toLocaleString())
-		this.constructor.updateTextByID("main-uch-stat-talent-total", currentUnitObject.stats.talentpoints.total.toLocaleString())
+			/* party */
+			let partyid = currentUnitObject.party.partyid === 0 ? "Not assigned" : currentUnitObject.party.partyid
+			txt("main-uch-party", undefined, [partyid.toLocaleString()])
 
-		/* talent add */
-		let talentaddview = this.gameui.bodyview.subviewspecs.unit.showtalentadd === false ? "hidden" : "shown"
-		this.constructor.updateAttributeByID("main-uch-talent-add-show-button", "data-v", talentaddview)
-		this.constructor.updateAttributeByID("main-uch-talent-add-hide-button", "data-v", talentaddview)
-		this.constructor.updateAttributeByID("main-unit-uch-info3", "data-v", talentaddview)
+			/* primary stats */
+			this.updateBodyCharacterViewPrimaryStat("strength", currentUnitObject.stats)
+			this.updateBodyCharacterViewPrimaryStat("constitution", currentUnitObject.stats)
+			this.updateBodyCharacterViewPrimaryStat("agility", currentUnitObject.stats)
+			this.updateBodyCharacterViewPrimaryStat("dexterity", currentUnitObject.stats)
+			this.updateBodyCharacterViewPrimaryStat("intelligence", currentUnitObject.stats)
+			this.updateBodyCharacterViewPrimaryStat("wisdom", currentUnitObject.stats)
+			this.updateBodyCharacterViewPrimaryStat("charm", currentUnitObject.stats)
+			this.updateBodyCharacterViewPrimaryStat("luck", currentUnitObject.stats)
+			this.updateBodyCharacterViewAllPrimaryStats(currentUnitObject.stats)
 
-		if (isNewIndex) {
-			currentUnitObject.resetTalentAdd()
-			this.clickTalentAddReset("main-uch-talent-reset-button", currentUnitObject)
-			this.clickTalentAddConfirm("main-uch-talent-confirm-button", currentUnitObject)
+			/* talent points */
+			let talentpointsUsed = currentUnitObject.stats.talentpoints.total - currentUnitObject.stats.talentpoints.unused
+			txt("main-uch-stat-talent-used", undefined, [talentpointsUsed.toLocaleString()])
+			txt("main-uch-stat-talent-unused", undefined, [currentUnitObject.stats.talentpoints.unused.toLocaleString()])
+			txt("main-uch-stat-talent-level", undefined, [currentUnitObject.stats.talentpoints.level.toLocaleString()])
+			txt("main-uch-stat-talent-spirit", undefined, [currentUnitObject.stats.talentpoints.spirit.toLocaleString()])
+			txt("main-uch-stat-talent-total", undefined, [currentUnitObject.stats.talentpoints.total.toLocaleString()])
+
+			/* talent add */
+			let talentaddview = this.gameui.bodyview.subviewspecs.unit.showtalentadd === false ? "hidden" : "shown"
+			this.constructor.updateAttributeByID("main-uch-talent-add-show-button", "data-v", talentaddview)
+			this.constructor.updateAttributeByID("main-uch-talent-add-hide-button", "data-v", talentaddview)
+			this.constructor.updateAttributeByID("main-unit-uch-info3", "data-v", talentaddview)
+
+			if (isNewIndex) {
+				currentUnitObject.resetTalentAdd()
+				this.clickTalentAddReset("main-uch-talent-reset-button", currentUnitObject)
+				this.clickTalentAddConfirm("main-uch-talent-confirm-button", currentUnitObject)
+			}
+
+			this.updateBodyCharacterViewTalentAddStat("strength", currentUnitObject, isNewIndex)
+			this.updateBodyCharacterViewTalentAddStat("constitution", currentUnitObject, isNewIndex)
+			this.updateBodyCharacterViewTalentAddStat("agility", currentUnitObject, isNewIndex)
+			this.updateBodyCharacterViewTalentAddStat("dexterity", currentUnitObject, isNewIndex)
+			this.updateBodyCharacterViewTalentAddStat("intelligence", currentUnitObject, isNewIndex)
+			this.updateBodyCharacterViewTalentAddStat("wisdom", currentUnitObject, isNewIndex)
+			this.updateBodyCharacterViewTalentAddStat("charm", currentUnitObject, isNewIndex)
+			this.updateBodyCharacterViewTalentAddStat("luck", currentUnitObject, isNewIndex)
+			txt("main-uch-talent-add-total-unused", undefined, [currentUnitObject.stats.talentpoints.addtemp.unused.toLocaleString()])
+
+			let totalAddUpgrade = currentUnitObject.getTalentAddUsedForAllStats()
+
+			this.constructor.updateAttributeByID("main-uch-talent-reset-button", "data-v", totalAddUpgrade.toLocaleString())
+			this.constructor.updateAttributeByID("main-uch-talent-confirm-button", "data-v", totalAddUpgrade.toLocaleString())
+
+			/* secondary stats - resources */
+			txt("main-uch-health-current", undefined, [toDecimal(currentUnitObject.stats.secondary.health.current,0).toLocaleString()])
+			txt("main-uch-health-max", undefined, [toDecimal(currentUnitObject.stats.secondary.health.max,0).toLocaleString()])
+			txt("main-uch-health-percent", "percent", [charStatHPpercent])
+			txt("main-uch-stamina-current", undefined, [toDecimal(currentUnitObject.stats.secondary.stamina.current,0).toLocaleString()])
+			txt("main-uch-stamina-max", undefined, [toDecimal(currentUnitObject.stats.secondary.stamina.max,0).toLocaleString()])
+			txt("main-uch-stamina-percent", "percent", [charStatStaminapercent])
+			txt("main-uch-satiety-current", undefined, [toDecimal(currentUnitObject.stats.secondary.satiety.current,0).toLocaleString()])
+			txt("main-uch-satiety-max", undefined, [toDecimal(currentUnitObject.stats.secondary.satiety.max,0).toLocaleString()])
+			txt("main-uch-satiety-percent", "percent", [charStatSatietypercent])
+			txt("main-uch-energy-current", undefined, [toDecimal(currentUnitObject.stats.secondary.energy.current,0).toLocaleString()])
+			txt("main-uch-energy-max", undefined, [toDecimal(currentUnitObject.stats.secondary.energy.max,0).toLocaleString()])
+			txt("main-uch-energy-percent", "percent", [charStatEnergypercent])
+
+			/* resources ticks */
+			txt("main-uch-ticks-stamina", undefined, [currentUnitObject.entity.ticks.lastStamina.toLocaleString()])
+			txt("main-uch-ticks-satiety", undefined, [currentUnitObject.entity.ticks.lastSatiety.toLocaleString()])
+			txt("main-uch-ticks-energy", undefined, [currentUnitObject.entity.ticks.lastEnergy.toLocaleString()])
+
+			/* secondary stats - utility */
+
+			/* secondary stats - defense */
+			txt("main-uch-threat", undefined, [currentUnitObject.stats.secondary.threat.value.toLocaleString()])
+			txt("main-uch-tenacity", undefined, [currentUnitObject.stats.secondary.tenacity.value.toLocaleString()])
+			txt("main-uch-willpower", undefined, [currentUnitObject.stats.secondary.willpower.value.toLocaleString()])
+			txt("main-uch-evasion", undefined, [currentUnitObject.stats.secondary.evasion.value.toLocaleString()])
+			txt("main-uch-dodge", undefined, [currentUnitObject.stats.secondary.dodge.value.toLocaleString()])
+
+			/* secondary stats - offensive */
+			txt("main-uch-base-attack", undefined, [currentUnitObject.stats.secondary.base.attack.value.toLocaleString()])
+			txt("main-uch-base-magicpower", undefined, [currentUnitObject.stats.secondary.base.magicpower.value.toLocaleString()])
+			txt("main-uch-base-penetration", undefined, [currentUnitObject.stats.secondary.base.penetration.value.toLocaleString()])
+			txt("main-uch-base-accuracy", undefined, [currentUnitObject.stats.secondary.base.accuracy.value.toLocaleString()])
+			txt("main-uch-base-critical", undefined, [currentUnitObject.stats.secondary.base.critical.value.toLocaleString()])
+			txt("main-uch-base-criticaldamage", undefined, [currentUnitObject.stats.secondary.base.criticaldamage.value.toLocaleString()])
+			txt("main-uch-base-parry", undefined, [currentUnitObject.stats.secondary.base.parry.value.toLocaleString()])
+			txt("main-uch-base-block", undefined, [currentUnitObject.stats.secondary.base.block.value.toLocaleString()])
+		} else if (this.gameui.bodyview.subviewspecs.unit.currentview === 2) {
+			/* **************** *\
+			 * Character Subview : skills 
+			\* **************** */
+			
+		} else if (this.gameui.bodyview.subviewspecs.unit.currentview === 3) {
+			/* **************** *\
+			 * Character Subview : inventory 
+			\* **************** */
+
+			/* Equip Stats*/
+			let esSlots = currentUnitObject.core.body.slots
+			let esSlotsCurrent = esSlots.head.current + esSlots.ears.current + esSlots.neck.current + esSlots.chest.current
+				+ esSlots.arms.current + esSlots.hands.current + esSlots.legs.current + esSlots.feets.current
+			let esSlotsLimit = esSlots.head.limit + esSlots.ears.limit + esSlots.neck.limit + esSlots.chest.limit
+				+ esSlots.arms.limit + esSlots.hands.limit + esSlots.legs.limit + esSlots.feets.limit
+
+			txt("main-uch-inv-es-head-current", "inv-es", [esSlots.head.current.toLocaleString()])
+			txt("main-uch-inv-es-head-limit", "inv-es2", [esSlots.head.limit.toLocaleString(), Flr(esSlots.head.current / esSlots.head.limit * 100)])
+			txt("main-uch-inv-es-ears-current", "inv-es", [esSlots.ears.current.toLocaleString()])
+			txt("main-uch-inv-es-ears-limit", "inv-es2", [esSlots.ears.limit.toLocaleString(), Flr(esSlots.ears.current / esSlots.ears.limit * 100)])
+			txt("main-uch-inv-es-neck-current", "inv-es", [esSlots.neck.current.toLocaleString()])
+			txt("main-uch-inv-es-neck-limit", "inv-es2", [esSlots.neck.limit.toLocaleString(), Flr(esSlots.neck.current / esSlots.neck.limit * 100)])
+			txt("main-uch-inv-es-chest-current", "inv-es", [esSlots.chest.current.toLocaleString()])
+			txt("main-uch-inv-es-chest-limit", "inv-es2", [esSlots.chest.limit.toLocaleString(), Flr(esSlots.chest.current / esSlots.chest.limit * 100)])
+			txt("main-uch-inv-es-arms-current", "inv-es", [esSlots.arms.current.toLocaleString()])
+			txt("main-uch-inv-es-arms-limit", "inv-es2", [esSlots.arms.limit.toLocaleString(), Flr(esSlots.arms.current / esSlots.arms.limit * 100)])
+			txt("main-uch-inv-es-hands-current", "inv-es", [esSlots.hands.current.toLocaleString()])
+			txt("main-uch-inv-es-hands-limit", "inv-es2", [esSlots.hands.limit.toLocaleString(), Flr(esSlots.hands.current / esSlots.hands.limit * 100)])
+			txt("main-uch-inv-es-legs-current", "inv-es", [esSlots.legs.current.toLocaleString()])
+			txt("main-uch-inv-es-legs-limit", "inv-es2", [esSlots.legs.limit.toLocaleString(), Flr(esSlots.legs.current / esSlots.legs.limit * 100)])
+			txt("main-uch-inv-es-feets-current", "inv-es", [esSlots.feets.current.toLocaleString()])
+			txt("main-uch-inv-es-feets-limit", "inv-es2", [esSlots.feets.limit.toLocaleString(), Flr(esSlots.feets.current / esSlots.feets.limit * 100)])
+			txt("main-uch-inv-es-total-current", "inv-es", [esSlotsCurrent.toLocaleString()])
+			txt("main-uch-inv-es-total-limit", "inv-es2", [esSlotsLimit.toLocaleString(), Flr(esSlotsCurrent / esSlotsLimit * 100)])
+
+			let strratio = toDecimal(currentUnitObject.core.bodyratio + Math.sqrt((currentUnitObject.stats.strength.base + currentUnitObject.stats.strength.talent) * 0.5 + (currentUnitObject.stats.constitution.base + currentUnitObject.stats.constitution.talent)) / 400, 3)
+			txt("main-uch-inv-es-debug", "inv-esbug", [currentUnitObject.core.bodyratio.toLocaleString(),strratio.toLocaleString()])
+
+			
+		} else if (this.gameui.bodyview.subviewspecs.unit.currentview === 4) {
+			/* **************** *\
+			 * Character Subview : titles 
+			\* **************** */
+			
 		}
-
-		this.updateBodyCharacterViewTalentAddStat("strength", currentUnitObject, isNewIndex)
-		this.updateBodyCharacterViewTalentAddStat("constitution", currentUnitObject, isNewIndex)
-		this.updateBodyCharacterViewTalentAddStat("agility", currentUnitObject, isNewIndex)
-		this.updateBodyCharacterViewTalentAddStat("dexterity", currentUnitObject, isNewIndex)
-		this.updateBodyCharacterViewTalentAddStat("intelligence", currentUnitObject, isNewIndex)
-		this.updateBodyCharacterViewTalentAddStat("wisdom", currentUnitObject, isNewIndex)
-		this.updateBodyCharacterViewTalentAddStat("charm", currentUnitObject, isNewIndex)
-		this.updateBodyCharacterViewTalentAddStat("luck", currentUnitObject, isNewIndex)
-		this.constructor.updateTextByID("main-uch-talent-add-total-unused", currentUnitObject.stats.talentpoints.addtemp.unused.toLocaleString())
-
-		let totalAddUpgrade = currentUnitObject.getTalentAddUsedForAllStats()
-
-		this.constructor.updateAttributeByID("main-uch-talent-reset-button", "data-v", totalAddUpgrade.toLocaleString())
-		this.constructor.updateAttributeByID("main-uch-talent-confirm-button", "data-v", totalAddUpgrade.toLocaleString())
-
-		/* secondary stats - resources */
-		this.constructor.updateTextByID("main-uch-health-current", toDecimal(currentUnitObject.stats.secondary.health.current,0).toLocaleString())
-		this.constructor.updateTextByID("main-uch-health-max", toDecimal(currentUnitObject.stats.secondary.health.max,0).toLocaleString())
-		this.constructor.updateTextByID("main-uch-stamina-current", currentUnitObject.stats.secondary.stamina.current.toLocaleString())
-		this.constructor.updateTextByID("main-uch-stamina-max", currentUnitObject.stats.secondary.stamina.max.toLocaleString())
-		this.constructor.updateTextByID("main-uch-satiety-current", currentUnitObject.stats.secondary.satiety.current.toLocaleString())
-		this.constructor.updateTextByID("main-uch-satiety-max", currentUnitObject.stats.secondary.satiety.max.toLocaleString())
-		this.constructor.updateTextByID("main-uch-energy-current", currentUnitObject.stats.secondary.energy.current.toLocaleString())
-		this.constructor.updateTextByID("main-uch-energy-max", currentUnitObject.stats.secondary.energy.max.toLocaleString())
-
-		/* resources ticks */
-		this.constructor.updateTextByID("main-uch-ticks-stamina", currentUnitObject.entity.ticks.lastStamina.toLocaleString())
-		this.constructor.updateTextByID("main-uch-ticks-satiety", currentUnitObject.entity.ticks.lastSatiety.toLocaleString())
-		this.constructor.updateTextByID("main-uch-ticks-energy", currentUnitObject.entity.ticks.lastEnergy.toLocaleString())
-
-		/* secondary stats - utility */
-
-		/* secondary stats - defense */
-		this.constructor.updateTextByID("main-uch-threat", currentUnitObject.stats.secondary.threat.value.toLocaleString())
-		this.constructor.updateTextByID("main-uch-tenacity", currentUnitObject.stats.secondary.tenacity.value.toLocaleString())
-		this.constructor.updateTextByID("main-uch-willpower", currentUnitObject.stats.secondary.willpower.value.toLocaleString())
-		this.constructor.updateTextByID("main-uch-evasion", currentUnitObject.stats.secondary.evasion.value.toLocaleString())
-		this.constructor.updateTextByID("main-uch-dodge", currentUnitObject.stats.secondary.dodge.value.toLocaleString())
-
-		/* secondary stats - offensive */
-		this.constructor.updateTextByID("main-uch-base-attack", currentUnitObject.stats.secondary.base.attack.value.toLocaleString())
-		this.constructor.updateTextByID("main-uch-base-magicpower", currentUnitObject.stats.secondary.base.magicpower.value.toLocaleString())
-		this.constructor.updateTextByID("main-uch-base-penetration", currentUnitObject.stats.secondary.base.penetration.value.toLocaleString())
-		this.constructor.updateTextByID("main-uch-base-accuracy", currentUnitObject.stats.secondary.base.accuracy.value.toLocaleString())
-		this.constructor.updateTextByID("main-uch-base-critical", currentUnitObject.stats.secondary.base.critical.value.toLocaleString())
-		this.constructor.updateTextByID("main-uch-base-criticaldamage", currentUnitObject.stats.secondary.base.criticaldamage.value.toLocaleString())
-		this.constructor.updateTextByID("main-uch-base-parry", currentUnitObject.stats.secondary.base.parry.value.toLocaleString())
-		this.constructor.updateTextByID("main-uch-base-block", currentUnitObject.stats.secondary.base.block.value.toLocaleString())
 
 	}
 
+	/* Main View > Character View > Information */
 	updateBodyCharacterViewPrimaryStat(statname, statsObject) {
-		this.constructor.updateTextByID("main-uch-stat-"+statname+"-base", statsObject[statname].base.toLocaleString())
-		this.constructor.updateTextByID("main-uch-stat-"+statname+"-talent", statsObject[statname].talent.toLocaleString())
-		this.constructor.updateTextByID("main-uch-stat-"+statname+"-skill", statsObject[statname].skill.toLocaleString())
-		this.constructor.updateTextByID("main-uch-stat-"+statname+"-equipment", statsObject[statname].equipment.toLocaleString())
-		this.constructor.updateTextByID("main-uch-stat-"+statname+"-status", statsObject[statname].status.toLocaleString())
+		txt("main-uch-stat-"+statname+"-base", undefined, [statsObject[statname].base.toLocaleString()])
+		txt("main-uch-stat-"+statname+"-talent", undefined, [statsObject[statname].talent.toLocaleString()])
+		txt("main-uch-stat-"+statname+"-skill", undefined, [statsObject[statname].skill.toLocaleString()])
+		txt("main-uch-stat-"+statname+"-equipment", undefined, [statsObject[statname].equipment.toLocaleString()])
+		txt("main-uch-stat-"+statname+"-status", undefined, [statsObject[statname].status.toLocaleString()])
 		let stattotal = statsObject[statname].base 
 		+ statsObject[statname].talent 
 		+ statsObject[statname].skill 
 		+ statsObject[statname].equipment 
 		+ statsObject[statname].status
-		this.constructor.updateTextByID("main-uch-stat-"+statname+"-total", stattotal.toLocaleString())
+		txt("main-uch-stat-"+statname+"-total", undefined, [stattotal.toLocaleString()])
 
 		//this.constructor.updateAttributeByID("main-uch-stat-"+statname+"-base", "data-n", statsObject[statname].base.toLocaleString())
 		let statsigntalent = isN(statsObject[statname].talent, true)
@@ -1020,14 +1152,14 @@ export class UserInterface {
 		+ statsObject.wisdom.status 
 		+ statsObject.charm.status 
 		+ statsObject.luck.status 
-		this.constructor.updateTextByID("main-uch-stat-allstats-base", allBase.toLocaleString())
-		this.constructor.updateTextByID("main-uch-stat-allstats-talent", allTalent.toLocaleString())
-		this.constructor.updateTextByID("main-uch-stat-allstats-skill", allSkill.toLocaleString())
-		this.constructor.updateTextByID("main-uch-stat-allstats-equipment", allEquipment.toLocaleString())
-		this.constructor.updateTextByID("main-uch-stat-allstats-status", allStatus.toLocaleString())
+		txt("main-uch-stat-allstats-base", undefined, [allBase.toLocaleString()])
+		txt("main-uch-stat-allstats-talent", undefined, [allTalent.toLocaleString()])
+		txt("main-uch-stat-allstats-skill", undefined, [allSkill.toLocaleString()])
+		txt("main-uch-stat-allstats-equipment", undefined, [allEquipment.toLocaleString()])
+		txt("main-uch-stat-allstats-status", undefined, [allStatus.toLocaleString()])
 
 		let allstatstotal = allBase + allTalent + allSkill + allEquipment + allStatus
-		this.constructor.updateTextByID("main-uch-stat-allstats-total", allstatstotal.toLocaleString())
+		txt("main-uch-stat-allstats-total", undefined, [allstatstotal.toLocaleString()])
 
 		//this.constructor.updateAttributeByID("main-uch-stat-allstats-base", "data-n", allBase.toLocaleString())
 		let statsigntalent = isN(allTalent, true)
@@ -1063,8 +1195,8 @@ export class UserInterface {
 
 	updateBodyCharacterViewTalentAddStat(statname, unitObject, updateHandler) {
 		let unused = unitObject.stats.talentpoints.addtemp.unused
-		this.constructor.updateTextByID("main-uch-talent-add-"+statname+"-upgrade", unitObject.stats.talentpoints.addtemp[statname].upgrade.toLocaleString())
-		this.constructor.updateTextByID("main-uch-talent-add-"+statname+"-new", unitObject.stats.talentpoints.addtemp[statname].newstat.toLocaleString())
+		txt("main-uch-talent-add-"+statname+"-upgrade", undefined, [unitObject.stats.talentpoints.addtemp[statname].upgrade.toLocaleString()])
+		txt("main-uch-talent-add-"+statname+"-new", undefined, [unitObject.stats.talentpoints.addtemp[statname].newstat.toLocaleString()])
 		let button1value = unitObject.getTlntPtsReqForUpgrade(statname, 1)
 		if (button1value > unused) { button1value = 0}
 		this.constructor.updateAttributeByID("main-uch-talent-add-"+statname+"-button1", "data-v", button1value.toLocaleString())
@@ -1075,7 +1207,7 @@ export class UserInterface {
 		if (button3value > unused || button3value < 0) { button3value = 0}
 		this.constructor.updateAttributeByID("main-uch-talent-add-"+statname+"-button3", "data-v", button3value.toLocaleString())
 		let ptsUsedDefault = unitObject.stats.talentpoints.spent[statname]
-		this.constructor.updateTextByID("main-uch-talent-add-"+statname+"-pointsused-default", ptsUsedDefault.toLocaleString())
+		txt("main-uch-talent-add-"+statname+"-pointsused-default", undefined, [ptsUsedDefault.toLocaleString()])
 
 		let statTalent = unitObject.stats[statname].talent
 		let newTalentAdd = unitObject.stats.talentpoints.addtemp[statname].newstat
@@ -1083,7 +1215,7 @@ export class UserInterface {
 		if (statTalent < newTalentAdd) {
 			ptsUsedUpgrade = unitObject.getTlntPtsAtStat(statTalent, newTalentAdd)
 		}
-		this.constructor.updateTextByID("main-uch-talent-add-"+statname+"-pointsused-upgrade", ptsUsedUpgrade.toLocaleString())
+		txt("main-uch-talent-add-"+statname+"-pointsused-upgrade", undefined, [ptsUsedUpgrade.toLocaleString()])
 
 		/* init the handlers if new character */
 		if (updateHandler) {

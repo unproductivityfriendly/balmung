@@ -6,7 +6,7 @@ export class World extends Utils.GameObject {
 		this.difficulty = 0
 		/* in seconds*/
 		this.timeTotal   = 100000000001
-		this.timePerTick = 20
+		this.timePerTick = 2
 
 		/* time settings */
 		this.clock = {

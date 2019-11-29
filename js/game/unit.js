@@ -1,6 +1,6 @@
 import {stringToFunction, toDecimal, GameObject, Flr, Sqrt, Sq, rng, rngmm, log10} from './utils.js';
 import * as Data from './data.js';
-
+import {SkillModel, PassiveSkill, ActiveSkill, ToggleSkill} from './skill.js';
 
 
 export class UnitModel {
@@ -23,7 +23,7 @@ export class UnitModel {
 			exp: 199,
 			expectedexp: 0,
 			exptospirit: 0,
-			unittype: 1, /* 1=character 2=transport */
+			unittype: 1, /* 1=character 2=transport 3=environment 4=water/air */
 			level: 0, /* calculated by calcLevel */
 			levelratio: 1,
 			race: race,
@@ -31,7 +31,7 @@ export class UnitModel {
 			genderratio: 1,
 			bodyratio: bodyratio,
 			body: {
-				baseweight: 50000,
+				baseweight: 35000,
 				equipweight: 1200,
 				totalweight: 51200,
 				slots: {}
@@ -212,7 +212,7 @@ export class UnitModel {
 						wisdom: 0.01,
 						luck : 1.4
 					}},
-
+				/* only from equipments & buff (status) */
 				resistance: {armor: 0, magic: 0, piercing: 0, slashing: 0},
 				/* adventure */
 				/* speed: 100 = 1 meter per second */
@@ -253,11 +253,11 @@ export class UnitModel {
 					upkeep: 0, rest: 0, 
 					tick: 6, default: {upkeep: 0, tick: 6},
 					ratio: { /* base+talent+skill */
-						strength: 40,
+						strength: 30,
 						constitution: 50,
 						agility: 30,
 						dexterity: 20,
-						intelligence: 40,
+						intelligence: 50,
 						wisdom: 5
 					}},
 				/* need to eat and rest to restore satiety */
@@ -300,6 +300,10 @@ export class UnitModel {
 					size: {},
 				},
 			},
+			skill: {
+				passive: [],
+				active: []
+			}
 		}
 
 		this.party = {
@@ -323,7 +327,7 @@ export class UnitModel {
 	 * calcCoreBodyMax
 	\***********************/
 
-	living() {
+	living(expRate,restexpRate,expabsorbRate) {
 		let stamina = this.stats.secondary.stamina
 		let satiety = this.stats.secondary.satiety
 		let energy = this.stats.secondary.energy
@@ -343,16 +347,16 @@ export class UnitModel {
 		}
 
 		/* STAMINA */
-		if (this.entity.ticks.lastStamina >= stamina.tick) {
+		if (this.entity.ticks.lastStamina >= stamina.tick && this.stats.secondary.satiety.current !== 0) {
 			if (state === 1) { /* deep sleep */
 				this.stats.secondary.stamina.current = Math.min(stamina.max, stamina.current + stamina.rest * 2)
 				if (this.core.expectedexp !== 0) {
-					this.absorbingExp(2)
+					this.absorbingExp(2*expabsorbRate)
 				}
 			} else if (state === 2) { /* meditating, sleeping */
 				this.stats.secondary.stamina.current = Math.min(stamina.max, stamina.current + stamina.rest)
 				if (this.core.expectedexp !== 0) {
-					this.absorbingExp(1)
+					this.absorbingExp(1*expabsorbRate)
 				}
 			} else if (state === 3) { /* sitting */
 				this.stats.secondary.stamina.current = Math.max(0, stamina.current - stamina.upkeep)
@@ -385,22 +389,39 @@ export class UnitModel {
 
 		/* SATIETY */
 		if (this.entity.ticks.lastSatiety >= satiety.tick) {
+			let satietyRatio = 1
 			if (state === 1) { /* deep sleep */
-				this.stats.secondary.satiety.current = Math.max(0, satiety.current - satiety.upkeep)
+				satietyRatio *= 0.25
 			} else if (state === 2) { /* meditating, sleeping */
-				this.stats.secondary.satiety.current = Math.max(0, satiety.current - satiety.upkeep)
+				satietyRatio *= 0.35
 			} else if (state === 3) { /* sitting */
-				this.stats.secondary.satiety.current = Math.max(0, satiety.current - satiety.upkeep)
+				satietyRatio *= 0.6
 			} else if (state === 4) { /* walking or small work */
-				this.stats.secondary.satiety.current = Math.max(0, satiety.current - satiety.upkeep * 2)
+				satietyRatio *= 0.8
+			}
+			/* based on stamina */
+			if (stamina.current === stamina.max) {
+				satietyRatio *= 0.5
+			} else if (stamina.current >= stamina.max * 0.9) {
+				satietyRatio *= 0.75
+			}
+
+			if (state === 1) { /* deep sleep */
+				this.stats.secondary.satiety.current = Math.max(0, satiety.current - satietyRatio * satiety.upkeep)
+			} else if (state === 2) { /* meditating, sleeping */
+				this.stats.secondary.satiety.current = Math.max(0, satiety.current - satietyRatio * satiety.upkeep)
+			} else if (state === 3) { /* sitting */
+				this.stats.secondary.satiety.current = Math.max(0, satiety.current - satietyRatio * satiety.upkeep)
+			} else if (state === 4) { /* walking or small work */
+				this.stats.secondary.satiety.current = Math.max(0, satiety.current - satietyRatio * satiety.upkeep * 2)
 			} else if (state === 5) { /* battle, working, learning, running */
-				this.stats.secondary.satiety.current = Math.max(0, satiety.current - satiety.upkeep * 3)
+				this.stats.secondary.satiety.current = Math.max(0, satiety.current - satietyRatio * satiety.upkeep * 3)
 			} else if (state === 6) { /* light status impaired */
-				this.stats.secondary.satiety.current = Math.max(0, satiety.current - satiety.upkeep * 3)
+				this.stats.secondary.satiety.current = Math.max(0, satiety.current - satietyRatio * satiety.upkeep * 3)
 			} else if (state === 7) { /* normal status impaired */
-				this.stats.secondary.satiety.current = Math.max(0, satiety.current - satiety.upkeep * 4)
+				this.stats.secondary.satiety.current = Math.max(0, satiety.current - satietyRatio * satiety.upkeep * 4)
 			} else if (state === 8) { /* high status impaired, poisoned, bleeding */
-				this.stats.secondary.satiety.current = Math.max(0, satiety.current - satiety.upkeep * 4)
+				this.stats.secondary.satiety.current = Math.max(0, satiety.current - satietyRatio * satiety.upkeep * 4)
 			}
 			this.entity.ticks.lastSatiety = 0
 		} else {
@@ -530,21 +551,22 @@ export class UnitModel {
 
 	/* Should be called after calcStats */
 	calcCoreBodyMax(bodyspec) {
-		let strratio = toDecimal(this.core.bodyratio + Math.sqrt((this.stats.strength.base + this.stats.strength.talent) * 0.5 + this.stats.constitution) / 400, 3)
+		let strratio = toDecimal((1.96 + this.core.bodyratio) * (1 + this.core.level / 100)
+			+ Math.sqrt((this.stats.strength.base + this.stats.strength.talent) * 0.5 + (this.stats.constitution.base + this.stats.constitution.talent)) / 40, 3)
 		let bslots = bodyspec.slots
 
-		this.core.body.baseweight = this.core.genderratio * (bodyspec.baseweight.min + this.core.bodyratio * (bodyspec.baseweight.max - bodyspec.baseweight.min))
+		this.core.body.baseweight = bodyspec.baseweight.min + (1.4 + this.core.bodyratio) * (bodyspec.baseweight.max - bodyspec.baseweight.min)
 
-		this.core.body.slots.head.limit = this.core.genderratio * (bslots.head.min + strratio * (bslots.head.max - bslots.head.min))
-		this.core.body.slots.ears.limit = this.core.genderratio * (bslots.ears.min + strratio * (bslots.ears.max - bslots.ears.min))
-		this.core.body.slots.neck.limit = this.core.genderratio * (bslots.neck.min + strratio * (bslots.neck.max - bslots.neck.min))
-		this.core.body.slots.chest.limit = this.core.genderratio * (bslots.chest.min + strratio * (bslots.chest.max - bslots.chest.min))
-		this.core.body.slots.arms.limit = this.core.genderratio * (bslots.arms.min + strratio * (bslots.arms.max - bslots.arms.min))
-		this.core.body.slots.hands.limit = this.core.genderratio * (bslots.hands.min + strratio * (bslots.hands.max - bslots.hands.min))
-		this.core.body.slots.legs.limit = this.core.genderratio * (bslots.legs.min + strratio * (bslots.legs.max - bslots.legs.min))
-		this.core.body.slots.feets.limit = this.core.genderratio * (bslots.feets.min + strratio * (bslots.feets.max - bslots.feets.min))
+		this.core.body.slots.head.limit = Flr(bslots.head.min + strratio * (bslots.head.max - bslots.head.min))
+		this.core.body.slots.ears.limit = Flr(bslots.ears.min + strratio * (bslots.ears.max - bslots.ears.min))
+		this.core.body.slots.neck.limit = Flr(bslots.neck.min + strratio * (bslots.neck.max - bslots.neck.min))
+		this.core.body.slots.chest.limit = Flr(bslots.chest.min + strratio * (bslots.chest.max - bslots.chest.min))
+		this.core.body.slots.arms.limit = Flr(bslots.arms.min + strratio * (bslots.arms.max - bslots.arms.min))
+		this.core.body.slots.hands.limit = Flr(bslots.hands.min + strratio * (bslots.hands.max - bslots.hands.min))
+		this.core.body.slots.legs.limit = Flr(bslots.legs.min + strratio * (bslots.legs.max - bslots.legs.min))
+		this.core.body.slots.feets.limit = Flr(bslots.feets.min + strratio * (bslots.feets.max - bslots.feets.min))
 		if (bslots.hasOwnProperty("tail")) {
-			this.core.body.slots.tail.limit = this.core.genderratio * (bslots.tail.min + strratio * (bslots.tail.max - bslots.tail.min))
+			this.core.body.slots.tail.limit = Flr(bslots.tail.min + strratio * (bslots.tail.max - bslots.tail.min))
 		}
 	}
 
@@ -558,7 +580,7 @@ export class UnitModel {
 		let bodymultiplier = this.getBodyRatioMultiplier()
 		let gendertype = this.getGenderRatioType()
 		let gendermultiplier = this.getGenderRatioMultiplier()
-		let racialdefault= this.stats.racialstat[statname]
+		let racialdefault = this.stats.racialstat[statname]
 
 		let charraw = racialdefault.rbase + racialdefault[bodytype] * bodymultiplier +  racialdefault[gendertype] * gendermultiplier
 		this.stats[statname].base = Flr(charraw * (1 + toDecimal(this.core.level/10,2)))
@@ -1055,12 +1077,19 @@ export class UnitModel {
 		this.calcPrimaryStats()
 		this.calcSecondaryStats()
 		/* set current health to max*/
+		this.stats.secondary.health.current = this.stats.secondary.health.max
+		this.stats.secondary.stamina.current = this.stats.secondary.stamina.max
+		this.stats.secondary.satiety.current = this.stats.secondary.satiety.max
+		this.stats.secondary.energy.current = Math.min(this.stats.secondary.energy.current, this.stats.secondary.energy.max / 2)
 
 		this.calcTalentPointsTotal()
 		/* don't change the order or it won't undate the addtemp.unused */
 		this.calcTalentAllSpent()
 		this.calcTalentAdd()
 		// this.calcTalentPointsUnused() : called by calcTalentAllSpent()
+
+		this.calcCoreBodyMax()
+
 	}
 
 	/* call this if expectedexp is not === 0 */
@@ -1092,13 +1121,14 @@ export class Human extends UnitModel {
 			this.core.genderratio = 0.67
 		}
 		/* racial ratio */
-		this.core.levelratio = 0.98
+		this.core.levelratio = 4.8
 
 		this.defineRacialSpecifications()
 		
 		this.calcCoreLevel()
 		this.calcPrimaryStats()
 		this.calcSecondaryStats()
+		this.calcCoreBodyMax()
 	}
 
 	defineRacialSpecifications() {

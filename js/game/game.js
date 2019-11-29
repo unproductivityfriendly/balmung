@@ -1,14 +1,26 @@
 import {stringToFunction, toDecimal, GameObject, Flr, rng, rngmm, unique, arrsign} from './utils.js';
 import {UnitModel, Human} from './unit.js';
+import {SkillModel, PassiveSkill, ActiveSkill, ToggleSkill} from './skill.js';
+import {ItemModel, ConsumableItem, MaterialItem, EquipmentItem, WeaponItem} from './item.js';
 import {PartyModel} from './party.js';
 
 export class GameEngine {
-	constructor() {
+	constructor(gameInstance=null) {
+		this.gameInstance = gameInstance
 		this.frame = 1000
 		this.fps = 1
 		this.lastFrameTimeStamp = 0
 		this.fpsmeter = null
-
+		this.objectlimits = {
+			character: 800,
+			transport: 400,
+		}
+		this.rates = {
+			exp: 1,
+			restexp: 1,
+			expabsorb: 1,
+			skillexp: 1,
+		}
 		this.constances = {
 			entitylists			: {
 				units 			: {},
@@ -86,7 +98,7 @@ export class GameEngine {
 		/* State */
 
 		/* Stamina */
-		this.updateCharactersStamina()
+		this.updateCharacters()
 
 		/** Character Battle **/
 
@@ -109,12 +121,15 @@ export class GameEngine {
 
 	createCharacter(characterName="Hayenn", characterRace="Human", characterBodyratio=0.5, characterGender) {
 		let charid = this.nextid.unit
+		if (this.characters.length >= this.objectlimits.character) {
+			return false
+		}
 		this.nextid.unit++
 
 		if (characterRace === "Human") {
 			//this.characters.push(new Human(charid, characterName, characterBodyratio, characterGender))
 			let gender = characterGender || Math.round(rngmm(1,2))
-			this.characters.push(new Human(charid, characterName, rngmm(0,100)/100, gender))
+			this.characters.push(new Human(charid, characterName, rngmm(30,70)/100, gender))
 			this.characters[this.characters.length-1].core.exp = 100 /*Flr(rngmm(100,99999999))*/
 			this.characters[this.characters.length-1].core.expectedexp = 999999999990 /*Flr(rngmm(100,9999999999))*/
 			this.characters[this.characters.length-1].levelup()
@@ -146,12 +161,51 @@ export class GameEngine {
 		
 	}
 
+	createItem(itemID) {
+		let newItem = null
+		/* 1=consumable, 2=material, 3=equipment, 4=weapon, 5=magic gem, 6=currency */
+		if (itemID >= 1000 && itemID <= 1999) {
+			newItem = new ConsumableItem(itemID, undefined, Flr(rngmm(1, 500 + 1)))
+		} else if (itemID >= 2000 && itemID <= 2999) {
+			newItem = new MaterialItem(itemID, undefined, Flr(rngmm(1, 500 + 1)))
+		} else if (itemID >= 3000 && itemID <= 3999) {
+			newItem = new EquipmentItem(itemID, undefined, Flr(rngmm(1, 500 + 1)))
+		} else if (itemID >= 4000 && itemID <= 4999) {
+			newItem = new WeaponItem(itemID, undefined, Flr(rngmm(1, 500 + 1)))
+		} else if (itemID >= 5000 && itemID <= 5999) {
+			newItem = new GemItem(itemID, undefined, Flr(rngmm(1, 500 + 1)))
+		} else if (itemID >= 6000 && itemID <= 6999) {
+			newItem = new CurrencyItem(itemID, undefined, Flr(rngmm(1, 500 + 1)))
+		}
+		console.log("New Item with ID: " + itemID)
+		console.log(newItem)
+	}
+
 	loadCharacter() {
 		/* load basic data */
 
 		/* set current values */
 
 		/* set status (buff/debuff) */
+	}
+
+	loadItem(itemData) {
+		let newItem = null
+		/* 1=consumable, 2=material, 3=equipment, 4=weapon, 5=magic gem, 6=currency */
+		if (itemData[0] >= 1000 && itemData[0] <= 1999) {
+			newItem = new ConsumableItem(itemData[0], undefined, itemData[1])
+		} else if (itemData[0] >= 2000 && itemData[0] <= 2999) {
+			newItem = new MaterialItem(itemData[0], undefined, itemData[1])
+		} else if (itemData[0] >= 3000 && itemData[0] <= 3999) {
+			newItem = new EquipmentItem(itemData[0], undefined, itemData[1], itemData[2][0], itemData[2][1], itemData[3], itemData[4], itemData[7], itemData[8], itemData[9])
+		} else if (itemData[0] >= 4000 && itemData[0] <= 4999) {
+			newItem = new WeaponItem(itemData[0], undefined, itemData[1], itemData[2][0], itemData[2][1], itemData[3], itemData[4], itemData[7], itemData[8], itemData[9], itemData[10])
+		} else if (itemData[0] >= 5000 && itemData[0] <= 5999) {
+			newItem = new GemItem(itemData[0], undefined, itemData[1])
+		} else if (itemData[0] >= 6000 && itemData[0] <= 6999) {
+			newItem = new CurrencyItem(itemData[0])
+		}
+
 	}
 
 	loadParty() {
@@ -185,11 +239,11 @@ export class GameEngine {
 	 * this is the natural stamina upkeep/rest 
 	 * only update 1/20th of characters every 20 frames
 	\**************************************************/
-	updateCharactersStamina() {
+	updateCharacters() {
 		let frameBundle = this.frame % 20
 
 		for (var i = frameBundle; i < this.characters.length; i+=20) {
-			this.characters[i].living()
+			this.characters[i].living(this.rates.exp,this.rates.restexp,this.rates.expabsorb)
 		}
 	}
 
