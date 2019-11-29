@@ -436,48 +436,48 @@
 	background-size: 54px 54px;
 }
 .inv-item-border[data-rarity="1"] {
-	/*border-image:url("/img/bp/item-1.png") 9 round;*/
-	background-image:url("/img/bp/item-1.png");
+	/*border-image:url("../img/bp/item-1.png") 9 round;*/
+	background-image:url("../img/bp/item-1.png");
 }
 /* 2	Uncommon 	B6D7D8 */
 .inv-item-border[data-rarity="2"] {
-	/*border-image:url("/img/bp/item-2.png") 9 round;*/
-	background-image:url("/img/bp/item-2.png");
+	/*border-image:url("../img/bp/item-2.png") 9 round;*/
+	background-image:url("../img/bp/item-2.png");
 }
 /* 3	Rare 		51C692 */
 .inv-item-border[data-rarity="3"] {
-	/*border-image:url("/img/bp/item-3.png") 9 round;*/
-	background-image:url("/img/bp/item-3.png");
+	/*border-image:url("../img/bp/item-3.png") 9 round;*/
+	background-image:url("../img/bp/item-3.png");
 }
 /* 4	Very Rare 	7AEF85 */
 .inv-item-border[data-rarity="4"] {
-	/*border-image:url("/img/bp/item-4.png") 9 round;*/
-	background-image:url("/img/bp/item-4.png");
+	/*border-image:url("../img/bp/item-4.png") 9 round;*/
+	background-image:url("../img/bp/item-4.png");
 }
 /* 5	Exotic 		FFC200 */
 .inv-item-border[data-rarity="5"] {
-	/*border-image:url("/img/bp/item-5.png") 9 round;*/
-	background-image:url("/img/bp/item-5.png");
+	/*border-image:url("../img/bp/item-5.png") 9 round;*/
+	background-image:url("../img/bp/item-5.png");
 }
 /* 6	Unique 		8559FF */
 .inv-item-border[data-rarity="6"] {
-	/*border-image:url("/img/bp/item-6.png") 9 round;*/
-	background-image:url("/img/bp/item-6.png");
+	/*border-image:url("../img/bp/item-6.png") 9 round;*/
+	background-image:url("../img/bp/item-6.png");
 }
 /* 7	Legendary 	FF4646 */
 .inv-item-border[data-rarity="7"] {
-	/*border-image:url("/img/bp/item-7.png") 9 round;*/
-	background-image:url("/img/bp/item-7.png");
+	/*border-image:url("../img/bp/item-7.png") 9 round;*/
+	background-image:url("../img/bp/item-7.png");
 }
 /* 8	Artifact */
 .inv-item-border[data-rarity="10"] {
-	/*border-image:url("/img/bp/item-10.png") 9 round;*/
-	background-image:url("/img/bp/item-10.png");
+	/*border-image:url("../img/bp/item-10.png") 9 round;*/
+	background-image:url("../img/bp/item-10.png");
 }
 
 /* Effect: default */
 .inv-item .inv-item-effect[data-sp="0"] {
-	background-image:url("/img/bp/itemeffect-default.png");
+	background-image:url("../img/bp/itemeffect-default.png");
 	background-size: 54px 54px;
 }
 
@@ -501,7 +501,7 @@
 }
 /* Effect: Magic */
 .inv-item-effect[data-sp="1"] {
-    background-image: url("/img/bp/itemeffect-m2.png");
+    background-image: url("../img/bp/itemeffect-m2.png");
     background-size: 216px 54px;
     margin: 0 auto;    
     -webkit-animation: bordereffectmagic 1s steps(4) infinite; 
@@ -530,7 +530,7 @@
     to { background-position: -216px; } /* <-- width of spritesheet*/
 }
 .inv-item-effect[data-sp="2"] {
-    background-image: url("/img/bp/itemeffect-b.png");
+    background-image: url("../img/bp/itemeffect-b.png");
     background-size: 216px 54px;
     margin: 0 auto;    
     -webkit-animation: bordereffectburn 1s steps(4) infinite; 
