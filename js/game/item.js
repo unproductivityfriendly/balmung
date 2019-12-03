@@ -176,7 +176,8 @@ export class EquipmentItem extends ItemModel {
 	generateAttribute(name=null,level=0) {
 		// temporary, need to be specific per kind of equip
 		let availableAttributes = ItemDB.attributesNameList
-		let attributeName = availableAttributes[Flr(rngmm(0,availableAttributes.length+1))]
+		let attributeName = availableAttributes[Flr(rngmm(0,availableAttributes.length))]
+		console.log(attributeName)
 		let attributeID = ItemDB.attributes[attributeName][0]
 		let attributeBase = ItemDB.attributes[attributeName][1]
 		let attributeLevel = Flr(rngmm(1,Flr(this.stats.statratio)))
